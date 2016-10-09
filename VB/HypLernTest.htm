@@ -1,0 +1,522 @@
+<BR>
+<FORM style="align: center; border: 1px solid black; overflow:auto; background-color: white;">
+  <NOBR>&nbsp;<FIELDSET style="width: 40%; border: none; padding: 3px;"><IMG align="absmiddle" src="..\Media\ButtonCheck.gif" alt="<<<CheckAll>>>" language=JavaScript onclick="checkCorrection('999')">&nbsp;<B><<<CheckAll>>></B>&nbsp;<FONT style='color:red;'><<<TEACHERMODEWARNING>>></FONT></FIELDSET><FIELDSET style="width: 60%; border: none; padding: 3px;"><IMG align="absmiddle" src="..\Media\ButtonRefreshTest.gif" alt="<<<ResetTest>>>" language=JavaScript onclick="goRetest(); return false;">&nbsp;<B><<<ResetTest>>> <<<for>>> <<<THISTESTTITLE>>></B></FIELDSET></NOBR>
+</FORM>
+<FORM style="align: center; padding: 0px; margin-top: -1em; margin-bottom: -1em; border: 1px solid black; overflow:auto; background-color: white;">
+<!--DIVCHAR-->
+<!--DIVCHAR-->
+  </FORM>
+  <FORM style="border: 0px; padding: 0px; background-color: transparent;">
+<!--DIVCHAR-->
+<!--DIVCHAR-->
+  <FIELDSET style="width: 50%; border: none; padding: 0xp;">
+    <DIV class=move id=movedummy style="POSITION: absolute; width: 100%; background-color: transparent; color: transparent; "></DIV>
+  </FIELDSET>
+  </FORM>
+
+<SCRIPT language=JavaScript type=text/javascript>
+
+isNS4 = (document.layers) ? true : false;
+isIE4 = (document.all && !document.getElementById) ? true : false;
+isIE5 = (document.all && document.getElementById) ? true : false;
+isNS6 = (!document.all && document.getElementById) ? true : false;
+
+var TestWordCodes = new Array(<<<TESTWORDCODES>>>);
+var TestWordPositions = new Array(<<<TESTWORDPOSITIONS>>>);
+var maxnumber = TestWordCodes.length - 1;
+var moving=0, number=1, touch=0, Totalscore = 0, Totalchecked = 0;    //maxnumber moet niet 13 hardcoded zijn maar <<<NUMBEROFWORDS>>> dat VB meegeeft
+var checkPoints = new Array();  //hierna moeten we de array vullen met =0 anders werkt de boel verderop niet...
+var ThisIsATest = "123";
+var selected = 0;
+selectedposition = TestWordPositions[selected];
+var word = "word" + selectedposition + "";
+document.all(word).style.color = 'blue';
+
+<<<CHAPTERNAMESJAVAVARS>>>
+
+// Just to make sure we don't rerun test if it ain't necessary
+if ( ("<<<THISTESTNUMBER>>>" == "<<<TEACHERCURRENTCHAPTERNUMBER>>>" && ( ( "<<<NONEFIMYWONICE>>>" == "Unchecked" && <<<TEACHERCURRENTMYWORDSNUMBER>>> < 1 ) || ( "<<<NONEFIMYWONICE>>>" == "Checked" ) ) && <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> < 1 && <<<TEACHERCURRENTCHAPTERLASTPAGE>>> < 9999) || ("<<<THISTESTTITLE>>>" == "<<<My Words>>>" && ( ( "<<<NONEFIMYWONICE>>>" == "Unchecked" && <<<TEACHERCURRENTMYWORDSNUMBER>>> < 1 ) || ( "<<<NONEFIMYWONICE>>>" == "Checked" ) ) && <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> < 1 && <<<TEACHERCURRENTCHAPTERLASTPAGE>>> < 9999) ) {
+   TestChecksAndSettings();
+}
+
+document.onmousedown = start;
+document.onmousemove = checkLocation;
+document.onmouseup = stop;
+
+
+function giveposX(divname) {
+  c = document.all(divname);
+  if (null != c && null == c.length)
+  {
+    var x  = c.offsetLeft;
+    var el = c;
+    
+    while (el.tagName != "BODY") 
+    {
+      el = el.offsetParent;
+      x = x + el.offsetLeft;
+    }
+  }
+	return x;
+}
+
+function giveposY(divname) {
+  c = document.all(divname);
+  if (null != c && null == c.length)
+  {
+    var y  = c.offsetTop;
+    var el = c;
+
+    while (el.tagName != "BODY") 
+    {
+      el = el.offsetParent;
+      y = y + el.offsetTop;
+    }
+  }
+	return y;
+}
+
+function givesizeX(divname) {
+  c = document.all(divname);
+  if (null != c && null == c.length)
+  {
+    var x  = c.offsetWidth;
+    var el = c;
+
+    while (el.tagName != "BODY") 
+    {
+      el = el.offsetParent;
+      x = x + el.offsetLeft;
+    }
+  }
+	return x;
+}
+
+function givesizeY(divname) {
+  c = document.all(divname);
+  if (null != c && null == c.length)
+  {
+    var y  = c.offsetHeight;
+    var el = c;
+
+
+    while (el.tagName != "BODY") 
+    {
+      el = el.offsetParent;
+      y = y + el.offsetTop;
+    }
+  }
+	return y;
+}
+
+function setposX(divname, xpos) {
+  scrolledLeft = document.body.scrollLeft;
+  xpos = xpos + scrolledLeft;
+  if (isNS4) document.layers[divname].left = xpos;
+  else if (isIE4 || isIE5) document.all(divname).style.pixelLeft = xpos;
+  else if (isNS6) document.getElementById(divname).style.left = xpos;
+}
+
+function setposY(divname, ypos) {
+  scrolledTop = document.body.scrollTop;
+  ypos = ypos + scrolledTop;
+  if (isNS4) document.layers[divname].top = ypos;
+  else if (isIE4 || isIE5) document.all(divname).style.pixelTop = ypos;
+  else if (isNS6) document.getElementById(divname).style.top = ypos;
+}
+
+function fixposX(divname, xpos) {
+  if (isNS4) document.layers[divname].left = xpos;
+  else if (isIE4 || isIE5) document.all(divname).style.pixelLeft = xpos;
+  else if (isNS6) document.getElementById(divname).style.left = xpos;
+}
+
+function fixposY(divname, ypos) {
+  if (isNS4) document.layers[divname].top = ypos;
+  else if (isIE4 || isIE5) document.all(divname).style.pixelTop = ypos;
+  else if (isNS6) document.getElementById(divname).style.top = ypos;
+}
+
+function checktouching(num) {
+// with this function, go check all if correctly entered
+  for (var num=0; num < maxnumber; num++) { 
+    var word = "wordbox" + num + "";
+    var meaning = "move" + number + "";
+    var meanX = giveposX(meaning) - 0; // -0 converts to integer
+    var meanY = giveposY(meaning) - 0;
+    var meanR = meanX + givesizeX(meaning) - 0;
+    var meanB = meanY + givesizeY(meaning) - 0;
+    var wordX = giveposX(word) - 0;
+    var wordY = giveposY(word) - 0;
+    var wordR = givesizeX(word) - 0;
+    var wordB = givesizeY(word) - 0;
+
+    if ((meanX > wordX && meanX < wordR && meanY > wordY && meanY < wordB) || (meanR > wordX && meanR < wordR && meanB > wordY && meanB < wordB))
+    {
+      meanX = wordX + 10;
+      meanY = wordY + 3;
+      var meantshade = "move" + number + "ts";
+      var meanbshade = "move" + number + "bs";
+      fixposX(meantshade,meanX);
+      fixposY(meantshade,meanY-1);
+      fixposX(meanbshade,meanX);
+      fixposY(meanbshade,meanY+1);
+      fixposX(meaning,meanX);
+      fixposY(meaning,meanY);
+      document.all(meantshade).style.background = 'transparent';
+      document.all(meantshade).style.border = 'none';
+      document.all(meantshade).style.color = '#999999';
+      document.all(meanbshade).style.color = '#999999';
+      document.all(meaning).style.color = '#222222';
+      moving = 0;
+      touch = 1;
+      // remove border from old selected and add one to get new selected and add border
+      var word = "word" + selectedposition + "";
+      document.all(word).style.color = 'black';
+
+      //now check if already a word there and remove if that is the case
+      for (var chk=0; chk < maxnumber; chk++) {
+        var meaning = "move" + chk + "";
+        var meantshade = "move" + chk + "ts";
+        var meanbshade = "move" + chk + "bs";
+        var meanX = giveposX(meaning) - 0; // -0 converts to integer
+        var meanY = giveposY(meaning) - 0;
+        var meanR = meanX + givesizeX(meaning) - 0;
+        var meanB = meanY + givesizeY(meaning) - 0;
+        if (chk == number)
+        {
+          //laat deze maar lekker staan
+        }
+        else
+        { 
+          if ((meanX > wordX && meanX < wordR && meanY > wordY && meanY < wordB) || (meanR > wordX && meanR < wordR && meanB > wordY && meanB < wordB))
+          {
+            meanX = wordR + 10;
+            fixposX(meantshade,meanX-2);
+            fixposY(meantshade,meanY-2);
+            fixposX(meanbshade,meanX+1);
+            fixposY(meanbshade,meanY+1);
+            fixposX(meaning,meanX);           
+            document.all(meantshade).style.background = 'gray';
+            document.all(meantshade).style.border = "solid 1px #666666";
+            document.all(meantshade).style.color = '#999999';
+            document.all(meanbshade).style.color = '#999999';
+            document.all(meaning).style.color = '#222222';
+          }
+        }
+      }
+      num = maxnumber;
+    }
+  }
+  
+  // if not touching anywhere, drop in inputbox of currently selected word, AND select new word!
+  if (touch == 0) {
+    selectedposition = TestWordPositions[selected];
+    var word = "wordbox" + selectedposition + "";
+    var meaning = "move" + number + "";
+    var meanX = giveposX(meaning) - 0; // -0 converts to integer
+    var meanY = giveposY(meaning) - 0;
+    var meanR = meanX + givesizeX(meaning) - 0;
+    var meanB = meanY + givesizeY(meaning) - 0;
+    var wordX = giveposX(word) - 0;
+    var wordY = giveposY(word) - 0;
+    var wordR = givesizeX(word) - 0;
+    var wordB = givesizeY(word) - 0;
+    meanX = wordX + 10;
+    meanY = wordY + 3;
+    var meantshade = "move" + number + "ts";
+    var meanbshade = "move" + number + "bs";
+    fixposX(meantshade,meanX);
+    fixposY(meantshade,meanY-1);
+    fixposX(meanbshade,meanX);
+    fixposY(meanbshade,meanY+1);
+    fixposX(meaning,meanX);
+    fixposY(meaning,meanY);
+    document.all(meantshade).style.background = 'transparent';
+    document.all(meantshade).style.border = 'none';
+    document.all(meantshade).style.color = '#999999';
+    document.all(meanbshade).style.color = '#999999';
+    document.all(meaning).style.color = '#222222';
+    
+    // remove border from old selected and add one to get new selected and add border
+    var word = "word" + selectedposition + "";
+    document.all(word).style.color = 'black';
+    selected = selected + 1;
+    selectedposition = TestWordPositions[selected];
+    if (selectedposition == 9999) {
+      selectedposition = TestWordPositions[0];
+    } else {
+      var word = "word" + selectedposition + "";
+      document.all(word).style.color = 'blue';
+    }
+    
+    // init
+    moving = 0;
+    number=0;
+    press=0;
+    hold=0;
+  }
+}
+
+function start(e) {
+// use this function to check whether cursor is located on ANY moveword
+  for (var num=0; num < maxnumber; num++) { 
+    curX = (isNS4 || isNS6) ? e.pageX : window.event.x ;
+    curY = (isNS4 || isNS6) ? e.pageY : window.event.y ;
+    var meaning = "move" + num + "";
+    var meanX = giveposX(meaning) - 0; // -0 converts to integer
+    var meanY = giveposY(meaning) - 0;
+    var meanR = meanX + givesizeX(meaning) - 0;
+    var meanB = meanY + givesizeY(meaning) - 0;
+    scrolledLeft = document.body.scrollLeft;
+    scrolledTop = document.body.scrollTop;
+    meanX = meanX - scrolledLeft;
+    meanY = meanY - scrolledTop;
+    meanR = meanR - scrolledLeft;
+    meanB = meanB - scrolledTop;
+
+    if (curX > meanX && curX < meanR && curY > meanY && curY < meanB){
+      var meantshade = "move" + num + "ts";
+      var meanbshade = "move" + num + "bs";
+      setposX(meantshade,meanX-2);
+      setposY(meantshade,meanY-2);
+      setposX(meanbshade,meanX+1);
+      setposY(meanbshade,meanY+1);
+      document.all(meantshade).style.background = 'gray';
+      document.all(meantshade).style.border = 'solid 1px #666666';
+      document.all(meantshade).style.color = '#999999';
+      document.all(meanbshade).style.color = '#999999';
+      document.all(meaning).style.color = '#222222';
+      number=num;
+      hold="yes";
+      moving=1;
+      num=maxnumber;
+    }
+  }
+  press=1;
+}
+
+function stop(e){
+// with this function, check if move is left on wordbox, and if so, lock it there
+  if (moving == 1) {
+    checktouching('1');
+    // init
+    moving = 0;
+    number=0;
+    press=0;
+    hold=0;
+  }
+}
+
+function checkCorrection(checkNumber) {
+// with this function, check whether all meanings are in correct wordboxes, if so, stop running the scripts
+  // for each wordbox
+  top.location.href = "DBG§Now checking correction:";
+  for (var num=0; num < maxnumber; num++) {
+    // if specific checknumber just for that
+    if (checkNumber < 999 && checkNumber != num)
+    {
+       // skipperdepip
+    }
+    else
+    {
+      var word = "wordbox" + num + "";
+      var wordX = giveposX(word) - 0;
+      var wordY = giveposY(word) - 0;
+      var wordR = givesizeX(word) - 0;
+      var wordB = givesizeY(word) - 0;
+      // now check if the correct word on this spot
+      for (var chk=0; chk < maxnumber; chk++) {
+        var meaning = "move" + chk + "";
+        var meantshade = "move" + chk + "ts";
+        var meanbshade = "move" + chk + "bs";
+        var meanX = giveposX(meaning) - 0; // -0 converts to integer
+        var meanY = giveposY(meaning) - 0;
+        var meanR = meanX + givesizeX(meaning) - 0;
+        var meanB = meanY + givesizeY(meaning) - 0;
+        // if in wordbox
+        if ((meanX > wordX && meanX < wordR && meanY > wordY && meanY < wordB) || (meanR > wordX && meanR < wordR && meanB > wordY && meanB < wordB))
+        {
+          if (chk == num)
+          {   
+            top.location.href = "DBG§Now trying to remove correct entry from wordlist";
+            // this one is correct
+            document.all(meantshade).style.color = '#009900';
+            document.all(meanbshade).style.color = '#009900';
+            document.all(meaning).style.color = '#00FF00';
+            if (checkPoints[num] != "1" && checkPoints[num] != "2")
+            {
+              checkPoints[num] = "2";
+              // remove from my wordlist as you tested it correctly
+              DelCorrectWord(num);
+            }
+          }
+          else
+          {
+            top.location.href = "DBG§Now trying to add incorrect entry to wordlist";
+            // if the correct meaning is not in the wordbox
+            document.all(meantshade).style.color = '#990000';
+            document.all(meanbshade).style.color = '#990000';
+            document.all(meaning).style.color = '#FF0000';
+            if (checkPoints[num] != "1" && checkPoints[num] != "2")
+            {
+              checkPoints[num] = "1";
+              // add to wordlist as it was incorrect
+              AddIncorrectWord(num);
+            }
+          }
+        }
+      }
+    }
+  }
+  calculateTotalscore();
+  top.location.href = "DBG§Now debugging Totalscore:";
+  top.location.href = "DBG§Totalscore_is_" + Totalscore + "_out_of_" + Totalchecked + "_(Alleen_een_woord_dat_je_in_een_keer_goed_hebt_telt!)";
+  // ONLY if TEACHERMODE is ON
+  if ( "<<<TEACHERMODECURRENT>>>" == "ON" )
+  {
+     if (Totalscore == Totalchecked)
+     {
+        NewNumberOfTestsNeeded = 0;
+
+        // FIRST CHECK IF THIS IS EITHER CURRENT CHAPTER OR MY WORDS TEST
+        top.location.href = "DBG§This test was successful! Checking if TeacherCurrentChapterName '<<<TEACHERCURRENTCHAPTERNUMBER>>>' equals ThisTestTitle '<<<THISTESTNUMBER>>>' or '<<<My Words>>>'...";
+        if ("<<<THISTESTNUMBER>>>" == "<<<TEACHERCURRENTCHAPTERNUMBER>>>" || "<<<THISTESTTITLE>>>" == "<<<My Words>>>")
+        {
+           top.location.href = "DBG§TeacherCurrentChapterName '<<<TEACHERCURRENTCHAPTERNUMBER>>>' equals ThisTestTitle '<<<THISTESTNUMBER>>>'... Now check if both My Words and Chapter is done:";
+           if ( ("<<<THISTESTNUMBER>>>" == "<<<TEACHERCURRENTCHAPTERNUMBER>>>" && ( ( "<<<NONEFIMYWONICE>>>" == "Unchecked" && <<<TEACHERCURRENTMYWORDSNUMBER>>> < 1 ) || ( "<<<NONEFIMYWONICE>>>" == "Checked" ) ) && <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> < 2 && <<<TEACHERCURRENTCHAPTERLASTPAGE>>> < 9999) || ("<<<THISTESTTITLE>>>" == "<<<My Words>>>" && ( ( "<<<NONEFIMYWONICE>>>" == "Unchecked" && <<<TEACHERCURRENTMYWORDSNUMBER>>> < 1 ) || ( "<<<NONEFIMYWONICE>>>" == "Checked" ) ) && <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> < 1 && <<<TEACHERCURRENTCHAPTERLASTPAGE>>> < 9999) ) {
+              top.location.href = "DBG§Chapter and My Words done or NONEFIMYWONICE is Checked. Checking and setting next required Chapter, Testcounter and Lastpage variables!";
+              TestChecksAndSettings();
+           }
+           if ("<<<THISTESTNUMBER>>>" == "<<<TEACHERCURRENTCHAPTERNUMBER>>>" && ( ( <<<TEACHERCURRENTMYWORDSNUMBER>>> < 1 && "<<<NONEFIMYWONICE>>>" == "Unchecked" ) || ( "<<<NONEFIMYWONICE>>>" == "Checked" ) ) && <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> > 1) {
+              top.location.href = "DBG§My Words done but not Chapter tests. Subtracting one from currentchaptertestcounter...";
+              NewNumberOfTestsNeeded = <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> - 1;
+              top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERTESTCOUNTER>>>§" + NewNumberOfTestsNeeded + "§NO_REFRESH";
+           }
+           if ("<<<THISTESTNUMBER>>>" == "<<<TEACHERCURRENTCHAPTERNUMBER>>>" && <<<TEACHERCURRENTMYWORDSNUMBER>>> > 0 && "<<<NONEFIMYWONICE>>>" == "Unchecked" && <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> < 2) {
+              top.location.href = "DBG§Chapter tests done but not My Words. Just removing one from TeacherCurrentChapterTestCounter...";
+              if (<<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> == 1) {
+                 NewNumberOfTestsNeeded = <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> - 1;
+                 top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERTESTCOUNTER>>>§" + NewNumberOfTestsNeeded + "§NO_REFRESH";
+              } else {
+                 top.location.href = "DBG§Required Chapter tests already zero. Ignoring.";
+              }
+           }
+           if ("<<<THISTESTNUMBER>>>" == "<<<TEACHERCURRENTCHAPTERNUMBER>>>" && ( ( <<<TEACHERCURRENTMYWORDSNUMBER>>> > 0 && "<<<NONEFIMYWONICE>>>" == "Unchecked" ) || ( "<<<NONEFIMYWONICE>>>" == "Checked" ) ) && <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> > 1) {
+              top.location.href = "DBG§Chapter tests done but not My Words. Just removing one from TeacherCurrentChapterTestCounter...";
+              NewNumberOfTestsNeeded = <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> - 1;
+              top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERTESTCOUNTER>>>§" + NewNumberOfTestsNeeded + "§NO_REFRESH";
+           }
+           if ("<<<THISTESTTITLE>>>" == "<<<My Words>>>" && ( ( <<<TEACHERCURRENTMYWORDSNUMBER>>> < 1 && "<<<NONEFIMYWONICE>>>" == "Unchecked" ) || ( "<<<NONEFIMYWONICE>>>" == "Checked" ) ) && <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> > 1) {
+              top.location.href = "DBG§My Words done but not Chapter tests. Ignoring.";
+           }
+           if ("<<<THISTESTTITLE>>>" == "<<<My Words>>>" && ( ( <<<TEACHERCURRENTMYWORDSNUMBER>>> > 0 && "<<<NONEFIMYWONICE>>>" == "Unchecked" ) || ( "<<<NONEFIMYWONICE>>>" == "Checked" ) ) && <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> > 1) {
+              top.location.href = "DBG§My Words not done and Chapter tests neither. Ignoring.";
+           }
+        }
+     }
+  }
+}
+
+function goRetest(){
+   ChoiceSub = "<<<SAVEDURL>>>";
+   re = /_/g;
+   NewChoiceSub = ChoiceSub.replace(re, "§");
+   top.location.href = "CFG§LAYOUTTEST§PARSE§"+NewChoiceSub;
+   top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§HypLernTest.htm§<<<PAGETABLE>>>§NO";
+}
+    
+function calculateTotalscore(e) {
+  Totalchecked = 0;
+  Totalscore = 0;
+  // for each word
+  for (var num=0; num < maxnumber; num++) {
+    // check checkPoints
+    if (checkPoints[num] == "0")
+    {
+      // doesn't exist
+    }
+    else
+    {
+      Totalchecked = Totalchecked + 1;
+      Totalscore = Totalscore + (checkPoints[num] - 1);
+      
+      top.location.href = "DBG§Adding result of wordnr " + num + " to Totalscore, Totalscore now " + Totalscore;
+    }
+  }
+}
+
+function checkLocation(e){
+  curX = (isNS4 || isNS6) ? e.pageX : window.event.x ;
+  curY = (isNS4 || isNS6) ? e.pageY : window.event.y ;
+
+  // move any picked up with cursor
+  if (moving==1 && hold == "yes"){
+    var meaning = "move" + number + "";
+    var meantshade = "move" + number + "ts";
+    var meanbshade = "move" + number + "bs";
+    newmeanX = eval(curX);
+    newmeanY = eval(curY);
+
+    setposX(meantshade,newmeanX-2);
+    setposY(meantshade,newmeanY-2);
+    setposX(meanbshade,newmeanX+1);
+    setposY(meanbshade,newmeanY+1);
+    setposX(meaning,newmeanX);
+    setposY(meaning,newmeanY);
+  }
+}
+
+function initStyle(e){
+  for (var num=0; num < maxnumber; num++)
+  {
+  	checkPoints[num] = "0";
+    var meaning = "move" + num + "";
+    var meantshade = "move" + num + "ts";
+    var meanbshade = "move" + num + "bs";
+    newmeanX = giveposX(meaning);
+    newmeanY = giveposY(meaning);
+
+    setposX(meantshade,newmeanX-2);
+    setposY(meantshade,newmeanY-2);
+    setposX(meanbshade,newmeanX+1);
+    setposY(meanbshade,newmeanY+1);
+    setposX(meaning,newmeanX);
+    setposY(meaning,newmeanY);
+  }
+}
+
+function DelCorrectWord(num){
+   top.location.href = "DBG§Checking if TeacherMode is ON:";
+   var ChoiceTrimmed = "";
+   var ChoiceArray = new Array();
+   if ( "<<<TEACHERMODECURRENT>>>" == "ON") {
+      Choice = TestWordCodes[num];
+      if (Choice == "Dummy" || Choice == "undefined") {
+         //ignore this one
+      } else {
+         top.location.href = "DBG§Sending remove Url for " + Choice;
+         var ChoiceArray = Choice.split("_");
+         ChoiceTrimmed = ChoiceArray[1]+"_"+ChoiceArray[2];
+         top.location.href = "DEL§PAGE_WORD_"+ChoiceTrimmed+"§TSTDEL_NORFR";
+      }
+   }
+}
+    
+function AddIncorrectWord(num){
+   top.location.href = "DBG§Checking if TeacherMode is ON:";
+   var ChoiceTrimmed = "";
+   var ChoiceArray = new Array();
+   if ( "<<<TEACHERMODECURRENT>>>" == "ON" ) {
+      Choice = TestWordCodes[num];
+      if (Choice == "Dummy" || Choice == "undefined") {
+         //ignore this one
+      } else {
+         top.location.href = "DBG§Sending add Url for " + Choice;
+         //var ChoiceArray = Choice.split("_");
+         //ChoiceTrimmed = ChoiceArray[0]+"_"+ChoiceArray[1];
+         top.location.href = "CLK§"+Choice+"§NO_REFRESH";
+      }
+   }
+}
+</SCRIPT>

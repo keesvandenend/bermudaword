@@ -1,0 +1,85 @@
+  <P class=ExtraText>
+        <B>Your Progress</B><BR><BR>
+        <FONT COLOR="#0000FF"><B>Current Tasks</B></FONT></A><BR>
+
+    <FORM style="align: left; border: 0px; width: "60%"; overflow:auto; background-color: white;">
+      <FIELDSET style="width: 9%; border: none; padding: 3px;">
+        <<<MESSAGESTART>>>=
+        Thanks for buying our product. You're ready to go.
+        Look at the index and then run a single test to complete the first "Chapter",
+        and unlock the first real Chapter.
+        <<<MESSAGEPROGRESS>>>=
+        You are currently at chapter <FONT COLOR="#0000FF"><B><<<CHAPTERNAME<<<TEACHERCURRENTCHAPTERNUMBER>>>>>></B></FONT>.
+        You have to test the words that you looked up, listed in My Words, repeatedly, so that that list is empty.
+        Also, you will need to successfully finish <FONT COLOR="#0000FF"><B><<<TEACHERCURRENTCHAPTERTESTCOUNTER>>></B></FONT>
+        more specific tests for this chapter to finish it and unlock the next chapter.
+        If you want to browse freely through the book, please turn Teachermode OFF.
+        However, turn Teachermode ON to advance on your progress page.
+        <<<MESSAGECHAPTERDONE>>>=
+        Congratulations! You have completed Chapter <B><<<CHAPTERNAME<<<TEACHERFINISHEDCHAPTERNUMBER>>>>>></B>!
+        You can go directly to the next Chapter, <A href='DUMMY' class=ExtraText language=JavaScript onclick="goPage(); return false;"><FONT COLOR="#0000FF"><B><<<CHAPTERNAME<<<TEACHERCURRENTCHAPTERNUMBER>>>>>></B></FONT></A>.
+        <<<MESSAGEFINISHED>>>=
+        Congratulations! You have finished the <FONT COLOR="#0000FF">Last Chapter</FONT>!
+        You can now browse freely through the book.
+        You should be able to read it fluently by now.
+        If that's not the case you might have to set the <FONT COLOR="#0000FF">Retention Factor</FONT> and the <FONT COLOR="#0000FF">Chapter Test Level</FONT> to a higher setting.
+        That way difficult words are encountered more often and the higher number of random tests makes sure you need to know all the words before progressing.
+      </FIELDSET>
+    </FORM>
+    
+    <FONT COLOR="#0000FF"><B>Settings</B></FONT></A><BR>
+    <FORM style="align: right; border: 0px; width: "40%"; overflow:auto; background-color: white;">
+      <FIELDSET style="width: 9%; border: none; padding: 3px;">setting 1</FIELDSET>
+      <FIELDSET style="width: 9%; border: none; padding: 3px;">setting 2</FIELDSET>
+      <FIELDSET style="width: 9%; border: none; padding: 3px;">setting 3</FIELDSET>
+      <FIELDSET style="width: 9%; border: none; padding: 3px;">setting 4</FIELDSET>
+    </FORM>
+            
+        <BR><BR>
+        <FONT COLOR="#0000FF"><B>Chapter Status</B></FONT></A><BR>
+        <<<CHAPTERPROGRESSLINES>>>
+        =
+<A><IMG src="..\Media\ChapterStatus<<<CHAPTERSTATUS1>>>.gif" align="bottom" width="36px" alt='<<<CHAPTERSTATUS1>>>' style='position: relative; border: 0pt solid white' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR="#0000FF">C&#237;m & Tartalomjegyz&#233;k (Tutorial)</FONT></A><BR>
+
+<A><IMG src="..\Media\ChapterStatus<<<CHAPTERSTATUS2>>>.gif" align="bottom" width="36px" alt='<<<CHAPTERSTATUS2>>>' style='position: relative; border: 0pt solid white' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR="#0000FF">A L&#243;fi&#243;</FONT></A><BR>
+
+<A><IMG src="..\Media\ChapterStatus<<<CHAPTERSTATUS3>>>.gif" align="bottom" width="36px" alt='<<<CHAPTERSTATUS3>>>' style='position: relative; border: 0pt solid white' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR="#0000FF">A Pil&#243;ta</FONT></A><BR>
+
+<A><IMG src="..\Media\ChapterStatus<<<CHAPTERSTATUS4>>>.gif" align="bottom" width="36px" alt='<<<CHAPTERSTATUS4>>>' style='position: relative; border: 0pt solid white' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR="#0000FF">A DebreceniCs&#243;rdas</FONT></A><BR>
+
+<A><IMG src="..\Media\ChapterStatus<<<CHAPTERSTATUS5>>>.gif" align="bottom" width="36px" alt='<<<CHAPTERSTATUS5>>>' style='position: relative; border: 0pt solid white' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR="#0000FF">Az El&#233;gt&#233;tel</FONT></A><BR>
+
+<A><IMG src="..\Media\ChapterStatus<<<CHAPTERSTATUS6>>>.gif" align="bottom" width="36px" alt='<<<CHAPTERSTATUS6>>>' style='position: relative; border: 0pt solid white' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR="#0000FF">A V&#233;gek Julija</FONT></A><BR>
+=>
+<FORM style="align: center; border: 0px; overflow:auto; background-color: white;">
+  <NOBR>
+    <FIELDSET style="width: 9%; border: none; padding: 3px;"><<<Chapter Status>>></FIELDSET>
+    <FIELDSET style="width: 50%; border: none; padding: 3px;"><B><<<Chapter Name>>></B></FIELDSET>
+    <FIELDSET style="width: 9%; border: none; padding: 3px;"><A onmouseover="ShowAlt('headertests','headertestsalt')" onmouseout="Hide('headertestsalt')"><<<Tests>>></A></FIELDSET><DIV class=ftxt id=headertestsalt><<<Number Of Tests Remaining To Finish This Chapter>>></DIV>
+    <FIELDSET style="width: 10%; border: none; padding: 3px;"><A alt="<<<Number Of New Unique Words Compared To Previous Chapters>>>"><<<Words>>></A></FIELDSET><DIV class=ftxt id=headertestsalt><<<Number Of Tests Remaining To Finish This Chapter>>></DIV>
+    <FIELDSET style="width: 10%; border: none; padding: 3px;"><A alt="<<<Average Word Frequency / Difficulty Level Of The Text (1 being Most Difficult)>>>"><<<Level>>></A></FIELDSET><DIV class=ftxt id=headertestsalt><<<Number Of Tests Remaining To Finish This Chapter>>></DIV>
+    <FIELDSET style="width: 10%; border: none; padding: 3px;"><A alt="<<<Estimated Length Of Schedule With Current Daily Study Time>>>"><<<Time>>></A></FIELDSET><DIV class=ftxt id=headertestsalt><<<Number Of Tests Remaining To Finish This Chapter>>></DIV>
+  </NOBR>
+
+=> per chapter:  
+  <NOBR>
+    <FIELDSET style="width: 9%; border: none; padding: 3px;"><IMG align="absmiddle" src="..\Media\ChapterStatus<<<CHAPTERSTATUS1>>>.gif" align="bottom" width="36px" alt='<<<CHAPTERSTATUS1>>>' style='position: relative; border: 0pt solid white' /></FIELDSET>
+    <FIELDSET style="width: 50%; border: none; padding: 3px;"><B><A class=atxt id=chapter1name href='DUMMY' onclick="GoChapter('Chapter1')" onmouseover="ShowAlt('chapter1name','chapter1translation')" onmouseout="Hide('chapter1translation')"><FONT COLOR="#0000FF"><<<CHAPTERNAME>>></FONT></A><DIV class=ftxt id=chapter1translation><<<CHAPTER1TRANSLATION>>></DIV></FIELDSET>
+    <FIELDSET style="width: 9%; border: none; padding: 3px;"><<<Chapter1Tests>>></FIELDSET>
+    <FIELDSET style="width: 10%; border: none; padding: 3px;"><<<Chapter1Words>>></FIELDSET>
+    <FIELDSET style="width: 10%; border: none; padding: 3px;"><<<Chapter1Level>>></FIELDSET>
+    <FIELDSET style="width: 10%; border: none; padding: 3px;"><<<Chapter1Time>>></FIELDSET>
+  </NOBR>
+</FORM>
+  	
+  	
+  	< BUILD CALENDAR HERE >
+  	
+  	done and time
+  	
+  	to do and time
+  	
+  	
+        <BR><BR>
+        <NOBR><DIV class=ExtraText><IMG align="absmiddle" src="..\Media\ButtonBackToBook.GIF" alt="<<<BackToBook>>>" language=JavaScript onclick="goPage(); return false;">&nbsp;<B><<<BackToBook>>></B></DIV><DIV class=ExtraText style="text-align:right">© Bermuda Word</DIV></NOBR>
+</P>

@@ -1,0 +1,48 @@
+Windows software:
+
+ISBN 			Title 						Product For			Publ Status	Description							Words
+978-1-987949-43-8	Bermuda Word - Leer Frans - Gemaskerde Liefde	Mixed Media product		Active		French Novella with Dutch Pop-up Translation			15000+				
+978-1-987949-42-1	Bermuda Word - Learn French - Masked Love	Mixed Media product		Active		French Novella with English Pop-up Translation			15000+
+978-1-987949-41-4	Bermuda Word - Leer Zweeds - Korte Verhalen	Mixed media product		Active		Swedish Short Stories with Dutch Pop-up Translation		10081
+978-1-987949-40-7	Bermuda Word - Leer Zweeds - Sprookjes		Mixed media product		Active		Swedish Fairy Tales with Dutch Pop-up Translation		9873
+978-1-987949-39-1	Bermuda Word - Leer Spaans - Korte Verhalen	Mixed media product		Active		Spanish Short Stories with Dutch Pop-up Translation		7871
+978-1-987949-38-4	Bermuda Word - Leer Spaans - Sprookjes		Mixed media product		Active		Spanish Fairy Tales with Dutch Pop-up Translation		9930
+978-1-987949-37-7	Bermuda Word - Leer Russisch - Korte Verhalen	Mixed media product		Active		Russian Short Stories with Dutch Pop-up Translation		12006
+978-1-987949-36-0	Bermuda Word - Leer Russisch - Sprookjes	Mixed media product		Active		Russian Fairy Tales with Dutch Pop-up Translation		7360
+978-1-987949-35-3	Bermuda Word - Leer Portugees - Sprookjes	Mixed media product		Active		Portuguese Fairy Tales with Dutch Pop-up Translation		7339
+978-1-987949-34-6	Bermuda Word - Leer Pools - Sprookjes		Mixed media product		Active		Polish Fairy Tales with Dutch Pop-up Translation		5817
+978-1-987949-33-9	Bermuda Word - Leer Italiaans - Korte Verhalen	Mixed media product		Active		Italian Short Stories with Dutch Pop-up Translation		8018
+978-1-987949-32-2	Bermuda Word - Leer Italiaans - Sprookjes	Mixed media product		Active		Italian Fairy Tales with Dutch Pop-up Translation		12156
+978-1-987949-31-5	Bermuda Word - Leer Indonesisch - Sprookjes	Mixed media product		Active		Indonesian Fairy Tales with Dutch Pop-up Translation		7243
+978-1-987949-30-8	Bermuda Word - Leer Hongaars - Korte Verhalen	Mixed media product		Active		Hungarian Short Stories with Dutch Pop-up Translation		6698
+978-1-987949-29-2	Bermuda Word - Leer Hongaars - Sprookjes	Mixed media product		Active		Hungarian Fairy Tales with Dutch Pop-up Translation		6642
+978-1-987949-28-5	Bermuda Word - Leer Frans - Romantische VerhalenMixed media product		Active		French Romantic Stories with Dutch Pop-up Translation		11046
+978-1-987949-27-8	Bermuda Word - Leer Frans - Beginner Verhalen	Mixed media product		Active		French Beginner Stories with Dutch Pop-up Translation		5388
+978-1-987949-26-1	Bermuda Word - Leer Frans - Korte Verhalen	Mixed media product		Active		French Short Stories with Dutch Pop-up Translation		9975
+978-1-987949-25-4	Bermuda Word - Leer Frans - Sprookjes		Mixed media product		Active		French Fairy Tales with Dutch Pop-up Translation		10686
+978-1-987949-24-7	Bermuda Word - Leer Engels - Korte Verhalen	Mixed media product		Active		English Short Stories with Dutch Pop-up Translation		12267
+978-1-987949-23-0	Bermuda Word - Leer Engels - Sprookjes		Mixed media product		Active		English Fairy Tales with Dutch Pop-up Translation		9448
+978-1-987949-22-3	Bermuda Word - Leer Duits - Korte Verhalen	Mixed media product		Active		German Short Stories with Dutch Pop-up Translation		11005
+978-1-987949-21-6	Bermuda Word - Leer Duits - Sprookjes		Mixed media product		Active		German Fairy Tales with Dutch Pop-up Translation		10674
+978-1-987949-20-9	Bermuda Word - Learn Portuguese - Fairytales	Mixed media product		Active		Portuguese Fairy Tales with English Pop-up Translation		7339
+978-1-987949-19-3	Bermuda Word - Learn Polish - Fairytales	Mixed media product		Active		Polish Fairy Tales with English Pop-up Translation		5817
+978-1-987949-18-6	Bermuda Word - Learn Italian - Short Stories	Mixed media product		Active		Italian Short Stories with English Pop-up Translation		8018
+978-1-987949-17-9	Bermuda Word - Learn Italian - Fairytales	Mixed media product		Active		Italian Fairy Tales with English Pop-up Translation		12156
+978-1-987949-16-2	Bermuda Word - Learn Indonesian - Folktales	Mixed media product		Active		Indonesian Folk Tales with English Pop-up Translation		7243
+978-1-987949-15-5	Bermuda Word - Learn Hungarian - Short Stories	Mixed media product		Active		Hungarian Short Stories with English Pop-up Translation		6698
+978-1-987949-14-8	Bermuda Word - Learn Hungarian - Fairytales	Mixed media product		Active		Hungarian Fairy Tales with English Pop-up Translation		6642
+978-1-987949-13-1	Bermuda Word - Learn French - Romantic Stories	Mixed media product		Active		French Romantic Stories with English Pop-up Translation		11046
+978-1-987949-12-4	Bermuda Word - Learn French - Beginner Stories	Mixed media product		Active		French Beginner Stories with English Pop-up Translation		5388
+978-1-987949-11-7	Bermuda Word - Learn Russian - Short Stories	Mixed media product		Active		Russian Short Stories with English Pop-up Translation		12006
+978-1-987949-10-0	Bermuda Word - Learn Russian - Fairytales	Mixed media product		Active		Russian Fairy Tales with English Pop-up Translation		7360
+978-1-987949-09-4	Bermuda Word - Learn Swedish - Short Stories	Mixed media product		Active		Swedish Short Stories with English Pop-up Translation		10081
+978-1-987949-08-7	Bermuda Word - Learn Swedish - Fairytales	Mixed media product		Active		Swedish Fairy Tales with English Pop-up Translation		9873
+978-1-987949-07-0	Bermuda Word - Learn Spanish - Short Stories	Mixed media product		Active		Spanish Short Stories with English Pop-up Translation		7871
+978-1-987949-06-3	Bermuda Word - Learn Spanish - Fairytales	Mixed media product		Active		Spanish Fairy Tales with English Pop-up Translation		9930
+978-1-987949-05-6	Bermuda Word - Learn German - Short Stories	Mixed media product		Active		German Short Stories with English Pop-up Translation		11005
+978-1-987949-04-9	Bermuda Word - Learn German - Fairytales	Mixed media product		Active		German Fairy Tales with English Pop-up Translation		10674
+978-1-987949-03-2	Bermuda Word - Learn Dutch - Short Stories	Mixed media product		Active		Dutch Short Stories with English Pop-up Translation		11982
+978-1-987949-02-5	Bermuda Word - Learn Dutch - Folktales		Mixed media product		Active		Dutch Folk Tales with English Pop-up Translation		10952
+978-1-987949-01-8	Bermuda Word - Learn French - Short Stories	Mixed media product		Active		French Short Stories with English Pop-up Translation		9975
+978-1-987949-00-1	Bermuda Word - Learn French - Fairytales	Mixed media product		Active		French Fairy Tales with English Pop-up Translation		10686
+

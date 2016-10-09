@@ -1,0 +1,1435 @@
+<![if !supportAnnotations]>
+<STYLE id=dynCom type=text/css></STYLE>
+
+
+<SCRIPT language=JavaScript type=text/javascript>
+
+   var ChapterName = new Array();
+   var ChapterLastPage = new Array();
+   var buc = "";
+   var bucdruk = "no";
+   var lastfc = "";
+   var lastfcyn = "";
+   var ThisIsATest = "default not no";
+   var FileToBeSaved = "";
+<<<CHAPTERNAMESJAVAVARS>>>
+
+
+// invizibilize meaning
+if ("<<<MYWOFLCARDNICE>>>" == "Checked") {
+  // by default no flashcards, show meaning unless someone checks that option
+  document.styleSheets.dynCom.addRule(".qtxt","visibility: hidden");
+  document.styleSheets.dynCom.addRule(".invimg","visibility: hidden");
+} else {
+  document.styleSheets.dynCom.addRule(".invimg","visibility: hidden");
+}
+
+// Just to make sure we don't rerun test if it ain't necessary
+top.location.href = "DBG§Checking if TeacherCurrentMyWordsNumber <<<TEACHERCURRENTMYWORDSNUMBER>>> and TeacherCurrentChapterTestCounter <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> are empty:";
+if ( ( ( "<<<NONEFIMYWONICE>>>" == "Unchecked" && <<<TEACHERCURRENTMYWORDSNUMBER>>> < 1 ) || ( "<<<NONEFIMYWONICE>>>" == "Checked" ) ) && <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> < 1 && <<<TEACHERCURRENTCHAPTERLASTPAGE>>> < 9999 ) {
+   TestChecksAndSettings();
+}
+function TestChecksAndSettings() {
+   top.location.href = "DBG§Chapter and My Words done. Checking and setting next required Chapter, Testcounter and Lastpage variables!";
+   //NOW SET NEW LAST PAGE AND CALCERLATE DEM NEW TESTCOUNTER FROM CHAPTERTESTFACTOR AND NUMBER OF PAGES OF NEW CHAPTER
+   //set vars needed
+   CurrentChapterNumber = <<<TEACHERCURRENTCHAPTERNUMBER>>>;
+   NextChapterNumber = <<<TEACHERCURRENTCHAPTERNUMBER>>> + 1;
+   CurrentChapterLastPage = <<<TEACHERCURRENTCHAPTERLASTPAGE>>>;
+   NextChapterPage = CurrentChapterLastPage + 1;
+   NextChapterLastPage = ChapterLastPage[NextChapterNumber];
+   ChapterTestFactor = (<<<CHAPTERTESTFACTOR>>>/1);
+   //SUBTRACT CURRENTCHAPTERLASTPAGE (STILL OLD) + 1 (IS FIRST PAGE OF CURRENT REAL CHAPTER) FROM NEXTCHAPTERPAGE (FIRST PAGE OF NEXT CHAPTER)
+   top.location.href = "DBG§Calculating TotalChapterPages by subtracting NextChapterLastPage " + NextChapterLastPage + " by " + CurrentChapterLastPage;
+   TotalChapterPages = NextChapterLastPage - CurrentChapterLastPage;
+   //DIVIDE TOTALCHAPTERPAGES BY CHAPTERTESTFACTOR
+   top.location.href = "DBG§Calculating new testcounter by dividing TotalChapterPages " + TotalChapterPages + " by " + ChapterTestFactor;
+   NewTeacherCurrentChapterTestCounter = TotalChapterPages / ChapterTestFactor;
+   NewTeacherCurrentChapterTestCounterRounded = Math.round(NewTeacherCurrentChapterTestCounter);
+   if (NewTeacherCurrentChapterTestCounterRounded == 0)
+   {
+      NewTeacherCurrentChapterTestCounterRounded = 1;
+   }
+   NewTeacherCurrentChapterLastPage = NextChapterLastPage - 1;
+   // set next chaptername, unless this one was the last
+   ChapterCounter = ChapterName.length;
+   // calculate progresspic number
+   ChapterProgressPic = Math.round((20 / ChapterCounter) * CurrentChapterNumber);
+   if (ChapterProgressPic == 0)
+   {
+      ChapterProgressPic = 1;
+   }
+   if (NextChapterNumber < ( ChapterCounter - 1 ) )
+   {
+      NextChapterName = ChapterName[NextChapterNumber];
+      top.location.href = "DBG§Setting Lastpage and required Teachercounter for next Chapter " + NextChapterName;
+      //top.location.href = "SET§<<<TEACHERFINISHED" + "CHAPTERNAME>>>§<<<TEACHERCURRENTCHAPTERNAME>>>§NO_REFRESH";
+      top.location.href = "SET§<<<TEACHERFINISHED" + "CHAPTERNUMBER>>>§" + CurrentChapterNumber + "§NO_REFRESH";
+      //top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERNAME>>>§" + NextChapterName + "§NO_REFRESH";
+      top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERNUMBER>>>§" + NextChapterNumber + "§NO_REFRESH";
+      top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERPROGRESSPIC>>>§" + ChapterProgressPic + "§NO_REFRESH";
+      top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERLASTPAGE>>>§" + NewTeacherCurrentChapterLastPage + "§NO_REFRESH";
+      top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERTESTCOUNTER>>>§" + NewTeacherCurrentChapterTestCounterRounded + "§NO_REFRESH";
+      top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERPAGE>>>§"+NextChapterPage+"§NO_REFRESH";
+      //Set current chapter to <<<Finished>>>, next chapter to <<<Unlocked>>>
+      top.location.href = "SET§<<<CHAPTERSTATUS"+CurrentChapterNumber+">>>§<<<Finished>>>§NO_REFRESH";
+      top.location.href = "SET§<<<CHAPTERSTATUS"+NextChapterNumber+">>>§<<<Unlocked>>>§NO_REFRESH";
+      //Use special variable to mark chapter finish and that we want to go to first page of new chapter
+      top.location.href = "SET§<<<NEWCHAPTER"+"DONE>>>§Yes§NO_REFRESH";
+      //Now go to ChapterDone page
+      top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+      top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<>"+NextChapterPage+"<>§ChapterDone<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+   } else {
+      NewTeacherCurrentChapterLastPage = 9999 ;
+      top.location.href = "DBG§This was last chapter...";
+      top.location.href = "SET§<<<CHAPTERSTATUS"+CurrentChapterNumber+">>>§<<<Finished>>>§NO_REFRESH";
+      top.location.href = "SET§<<<TEACHERFINISHED" + "CHAPTERNUMBER>>>§<<<TEACHERCURRENTCHAPTERNUMBER>>>§NO_REFRESH";
+      top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERNUMBER>>>§999§NO_REFRESH";
+      top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERPROGRESSPIC>>>§20§NO_REFRESH";
+      top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERLASTPAGE>>>§" + NewTeacherCurrentChapterLastPage + "§NO_REFRESH";
+      top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERTESTCOUNTER>>>§0§NO_REFRESH";
+      top.location.href = "SVF§FinishedUniqueWordsFile.htm";
+      top.location.href = "SVF§HypLernWordsTst.htm";
+      top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+      top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<>"+NextChapterPage+"<>§Finished<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+   }
+}
+
+   function Dummy(){
+      coby = poby;
+   }
+
+   function doOnLoad(){
+      hierdoet = "ienognix";
+   }
+   
+   function stopandstart(TargetSoundFile){
+         top.location.href = "AUD§DummySound";
+         top.location.href = "AUD§" + TargetSoundFile;
+   }
+
+   function goPage(){
+      NewChapterDone = "<<<NEWCHAPTERDONE>>>";
+      top.location.href = "DBG§Running GoPage function, NEWCHAPTERDONE is " + NewChapterDone;
+      if ( "<<<NEWCHAPTERDONE>>>" == "Yes")
+      {
+         top.location.href = "DBG§YES, NEWCHAPTERDONE is Yes";
+         SecondPage = (<<<TEACHERCURRENTCHAPTERPAGE>>>/1) + (1/1);
+         top.location.href = "SET§<<<NEWCHAPTER"+"DONE>>>§No§NO_REFRESH";
+         top.location.href = "CFG§<<<SAVEDLAYOUT>>>§PARSE";
+         top.location.href = "CFG§SAVEDURL§<<<SAVED"+"URL>>>§DUMMY§YES";
+         if ( "<<<AUTOSAVINGNICE>>>" == "Checked" ) {
+            top.location.href = "SAVEAUTOSAVE";
+         }
+         top.location.href = "GET§<<<BASEHTMLFILEPART>>>Main.htm<><<<TEACHERCURRENTCHAPTERPAGE>>><>§<<<BASEHTMLFILEPART>>><<<TEACHERCURRENTCHAPTERPAGE>>>.htm<><<<BASEHTMLFILEPART>>>"+SecondPage+".htm§<<<PAGETABLE>>><><<<PTWOTABLE>>>§NO";
+      } else {
+         top.location.href = "CFG§<<<SAVEDLAYOUT>>>§PARSE";
+         top.location.href = "CFG§SAVEDURL§<<<SAVED"+"URL>>>§DUMMY§YES";
+         if ( "<<<AUTOSAVINGNICE>>>" == "Checked" ) {
+            top.location.href = "SAVEAUTOSAVE";
+         }
+         top.location.href = "GET§<<<BASEHTMLFILEPART>>>Main.htm<><<<PAGENUMBER>>><>§<<<BASEHTMLFILEPART>>><<<PAGENUMBER>>>.htm<><<<BASEHTMLFILEPART>>><<<NEXTPAGE>>>.htm§<<<PAGETABLE>>><><<<PTWOTABLE>>>§NO";
+      }
+   }
+
+   function MM_jumpChoice(Choice){
+      top.location.href = "DEL§"+Choice+"§MYWDEL_DORFR";
+   }
+   
+   function MM_jumpLink(targ,selObj,restore){
+      Choice = selObj.options[selObj.selectedIndex].value;
+      top.location.href = Choice;
+   }
+
+   function MM_jumpMenu(targ,selObj,restore){
+      Choice = selObj.options[selObj.selectedIndex].value;
+      top.location.href = "AUD§DummySound";
+      top.location.href = "CFG§"+Choice+"§PARSE";
+      top.location.href = "SET§<<<DUMMYVAR>>>§<<<DUMMYVAL>>>§DO_REFRESH";
+   }
+
+   function MM_jumpMenuTableWidth(targ,selObj,restore){
+      Choice = selObj.options[selObj.selectedIndex].value;
+      top.location.href = "AUD§DummySound";
+      top.location.href = "CFG§TABLEWIDTH"+Choice+"§PARSE";
+      top.location.href = "SET§<<<DUMMYVAR>>>§<<<DUMMYVAL>>>§DO_REFRESH";
+   }
+
+   function NextPageFrameUpdate(Type) {
+      var SecondPage = 0;
+      var NewTeacherCurrentChapterLastPage = 0;
+      if (Type == "3")
+      {
+         SecondPage = (<<<PREVCHAPTERPAGE>>>/1) + (1/1);
+         if ( "<<<TEACHERMODECURRENT>>>" == "ON" )
+         {
+            //save page
+            top.location.href = "SET§<<<TEACHERCURRENT"+"CHAPTERPAGE>>>§<<<PREVCHAPTERPAGE>>>§NO_REFRESH";
+         }
+         top.location.href = "AUD§DummySound";
+         if ( "<<<AUTOSAVINGNICE>>>" == "Checked" ) {
+            top.location.href = "SAVEAUTOSAVE";
+         }
+         top.location.href = "GET§<<<BASEHTMLFILEPART>>>Main.htm<><<<PREVCHAPTERPAGE>>><>§<<<BASEHTMLFILEPART>>><<<PREVCHAPTERPAGE>>>.htm<><<<BASEHTMLFILEPART>>>"+SecondPage+".htm§<<<PAGETABLE>>><><<<PTWOTABLE>>>§NO";
+      }
+      if (Type == "4")
+      {
+         SecondPage = (<<<NEXTCHAPTERPAGE>>>/1) + (1/1);
+         TeacherCurrentChapterLastPage = (<<<TEACHERCURRENTCHAPTERLASTPAGE>>>/1);
+         NextChapterPage = (<<<NEXTCHAPTERPAGE>>>/1);
+         if ( ( "<<<TEACHERMODECURRENT>>>" == "OFF" ) || ( ( "<<<TEACHERMODECURRENT>>>" == "ON" ) && ( NextChapterPage < TeacherCurrentChapterLastPage ) ) ) {
+            if ( "<<<TEACHERMODECURRENT>>>" == "ON" )
+            {
+               //save page
+               top.location.href = "SET§<<<TEACHERCURRENT"+"CHAPTERPAGE>>>§<<<NEXTCHAPTERPAGE>>>§NO_REFRESH";
+            }
+            top.location.href = "AUD§DummySound";
+            if ( "<<<AUTOSAVINGNICE>>>" == "Checked" ) {
+               top.location.href = "SAVEAUTOSAVE";
+            }
+            top.location.href = "GET§<<<BASEHTMLFILEPART>>>Main.htm<><<<NEXTCHAPTERPAGE>>><>§<<<BASEHTMLFILEPART>>><<<NEXTCHAPTERPAGE>>>.htm<><<<BASEHTMLFILEPART>>>"+SecondPage+".htm§<<<PAGETABLE>>><><<<PTWOTABLE>>>§NO";
+         } else {
+            top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+            if ( "<<<AUTOSAVINGNICE>>>" == "Checked" ) {
+               top.location.href = "SAVEAUTOSAVE";
+            }
+            top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Progress<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+         }
+      }
+      if (Type == "5")
+      {
+         SecondPage = (<<<PREVPAGE>>>/1);
+         FirstPage = (<<<PREVPAGE>>>/1) - (1/1);
+         if (FirstPage == "0")
+         {
+            FirstPage = 1;
+            SecondPage = 2;
+         }
+         if ( "<<<TEACHERMODECURRENT>>>" == "ON" )
+         {
+            //save page
+            top.location.href = "SET§<<<TEACHERCURRENT"+"CHAPTERPAGE>>>§"+FirstPage+"§NO_REFRESH";
+         }
+         top.location.href = "AUD§DummySound";
+         if ( "<<<AUTOSAVINGNICE>>>" == "Checked" ) {
+            top.location.href = "SAVEAUTOSAVE";
+         }
+         top.location.href = "GET§<<<BASEHTMLFILEPART>>>Main<<<MENUVISIBILITYSTATE>>>.htm<>"+FirstPage+"<>§<<<BASEHTMLFILEPART>>>"+FirstPage+".htm<><<<BASEHTMLFILEPART>>>"+SecondPage+".htm§<<<PAGETABLE>>><><<<PTWOTABLE>>>§NO";
+      }
+      if (Type == "6")
+      {
+         SecondPage = (<<<NEXTPAGE>>>/1) + (2/1);
+         FirstPage = (<<<NEXTPAGE>>>/1) + (1/1);
+         TeacherCurrentChapterLastPage = (<<<TEACHERCURRENTCHAPTERLASTPAGE>>>/1);
+         if ( ( "<<<TEACHERMODECURRENT>>>" == "OFF" ) || ( ( "<<<TEACHERMODECURRENT>>>" == "ON" ) && ( FirstPage < TeacherCurrentChapterLastPage ) ) ) {
+            if ( "<<<TEACHERMODECURRENT>>>" == "ON" )
+            {
+               //save page
+               top.location.href = "SET§<<<TEACHERCURRENT"+"CHAPTERPAGE>>>§"+FirstPage+"§NO_REFRESH";
+            }
+            top.location.href = "AUD§DummySound";
+            if ( "<<<AUTOSAVINGNICE>>>" == "Checked" ) {
+               top.location.href = "SAVEAUTOSAVE";
+            }
+            top.location.href = "GET§<<<BASEHTMLFILEPART>>>Main<<<MENUVISIBILITYSTATE>>>.htm<>"+FirstPage+"<>§<<<BASEHTMLFILEPART>>>"+FirstPage+".htm<><<<BASEHTMLFILEPART>>>"+SecondPage+".htm§<<<PAGETABLE>>><><<<PTWOTABLE>>>§NO";
+         } else {
+            top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+            if ( "<<<AUTOSAVINGNICE>>>" == "Checked" ) {
+               top.location.href = "SAVEAUTOSAVE";
+            }
+            top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Progress<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+         }
+      }
+   }
+
+   function MyWords(){
+      top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+      top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§HypLernWords<<<MYWORDSORDER>>>.htm§<<<PAGETABLE>>>§NO";
+   }
+   
+   function goResortAZ(){
+         top.location.href = "SET§<<<MYWORDS"+"ORDER>>>§<<<SORTORDERAZ>>>§NO_REFRESH";
+         top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§HypLernWordsAZ.htm§<<<PAGETABLE>>>§NO";
+   }
+   function goResortDT(){
+         top.location.href = "SET§<<<MYWORDS"+"ORDER>>>§<<<SORTORDERDT>>>§NO_REFRESH";
+         top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§HypLernWordsDT.htm§<<<PAGETABLE>>>§NO";
+   }
+   function goResortFQ(){
+         top.location.href = "SET§<<<MYWORDS"+"ORDER>>>§<<<SORTORDERFQ>>>§NO_REFRESH";
+         top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§HypLernWordsFQ.htm§<<<PAGETABLE>>>§NO";
+   }
+   function goResortTQ(){
+         top.location.href = "SET§<<<MYWORDS"+"ORDER>>>§<<<SORTORDERTQ>>>§NO_REFRESH";
+         top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§HypLernWordsTQ.htm§<<<PAGETABLE>>>§NO";
+   }
+  
+  function ChangeLayout(targ,selObj,restore){
+      if (targ == "Save" || targ == "Direct") {
+         if (FileToBeSaved == "") {
+            Layoute = selObj
+         } else {
+            Layoute = selObj + "§" + FileToBeSaved;
+         }
+      } else {
+         Layoute = selObj.options[selObj.selectedIndex].value;
+      }
+      ChoiceLength = Layoute.length;
+      ChoiceBas = Layoute.substring(0,6);
+      ChoiceLay = Layoute.substring(6,12);
+      ChoiceSub = Layoute.substring(12,ChoiceLength);
+      top.location.href = "AUD§DummySound";
+      if (ChoiceBas == "LAYOUT")
+      {
+        if (ChoiceLay == "DOUBLE" || ChoiceLay == "SINGLE")
+        {
+          if (ChoiceSub != "USAGE" && ChoiceSub != "ABOUT" && ChoiceSub != "HELP" && ChoiceSub != "PROGRESS" && ChoiceSub != "METHOD" && ChoiceSub != "ERANDSRS" && ChoiceSub != "MYWORDS" && ChoiceSub != "MYWORDSINFO" && ChoiceSub != "SETTINGS" && ChoiceSub != "EDIT")
+          {
+            top.location.href = "CFG§SAVEDLAYOUT§<<<SAVED"+"LAYOUT>>>§LAYOUT"+ChoiceLay+"§YES";
+          }
+          if (ChoiceSub != "NONE" && ChoiceSub != "USAGE" && ChoiceSub != "ABOUT" && ChoiceSub != "HELP" && ChoiceSub != "PROGRESS" && ChoiceSub != "METHOD" && ChoiceSub != "ERANDSRS" && ChoiceSub != "MYWORDS" && ChoiceSub != "MYWORDSINFO" && ChoiceSub != "SETTINGS" && ChoiceSub != "EDIT")
+          {
+            top.location.href = "CFG§LAYOUT"+ChoiceLay+"§PARSE";
+            top.location.href = "CFG§LAYOUT"+ChoiceSub+"§PARSE";
+            if (ChoiceLay == "DOUBLE")
+            {
+              top.location.href = "GET§<<<BASEHTMLFILEPART>>>Main.htm<><<<PAGENUMBER>>><>§<<<BASEHTMLFILEPART>>><<<PAGENUMBER>>>.htm<><<<BASEHTMLFILEPART>>><<<NEXTPAGE>>>.htm§<<<PAGETABLE>>><><<<PTWOTABLE>>>§NO";
+            }
+            if (ChoiceLay == "SINGLE")
+            {
+              top.location.href = "GET§<<<BASEHTMLFILEPART>>>Main.htm<><<<PAGENUMBER>>><>§<<<BASEHTMLFILEPART>>><<<PAGENUMBER>>>.htm§<<<PAGETABLE>>>§NO";
+            }
+          }
+          if (ChoiceSub == "NONE")
+          {
+            top.location.href = "CFG§LAYOUT"+ChoiceLay+"§PARSE";
+            if (ChoiceLay == "DOUBLE")
+            {
+              top.location.href = "GET§<<<BASEHTMLFILEPART>>>Main.htm<><<<PAGENUMBER>>><>§<<<BASEHTMLFILEPART>>><<<PAGENUMBER>>>.htm<><<<BASEHTMLFILEPART>>><<<NEXTPAGE>>>.htm§<<<PAGETABLE>>><><<<PTWOTABLE>>>§NO";
+            }
+            if (ChoiceLay == "SINGLE")
+            {
+              top.location.href = "GET§<<<BASEHTMLFILEPART>>>Main.htm<><<<PAGENUMBER>>><>§<<<BASEHTMLFILEPART>>><<<PAGENUMBER>>>.htm§<<<PAGETABLE>>>§NO";
+            }
+          }
+          if (ChoiceLay == "SINGLE" && ChoiceSub == "USAGE")
+          {
+            top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+            top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Usage<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+          }
+          if (ChoiceLay == "SINGLE" && ChoiceSub == "ABOUT")
+          {
+            top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+            top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§About<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+          }
+          if (ChoiceLay == "SINGLE" && ChoiceSub == "ERANDSRS")
+          {
+            top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+            top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Erandsrs<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+          }
+          if (ChoiceLay == "SINGLE" && ChoiceSub == "HELP")
+          {
+            top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+            top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Help<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+          }
+          if (ChoiceLay == "SINGLE" && ChoiceSub == "MYWORDSINFO")
+          {
+            top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+            top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§MyWords<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+          }
+          if (ChoiceLay == "SINGLE" && ChoiceSub == "SETTINGS")
+          {
+            top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+            top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Settings.htm§<<<PAGETABLE>>>§NO";
+          }
+          if (ChoiceLay == "SINGLE" && ChoiceSub == "EDIT")
+          {
+            top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+            top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Editing.htm§<<<PAGETABLE>>>§NO";
+          }
+          if (ChoiceLay == "SINGLE" && ChoiceSub == "PROGRESS")
+          {
+            if (<<<TEACHERCURRENTCHAPTERLASTPAGE>>> == 9999)
+            {
+              top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+              top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Finished<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+            } else {
+              top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+              top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Progress<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+            }
+          }
+          if (ChoiceLay == "SINGLE" && ChoiceSub == "METHOD")
+          {
+            top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+            top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Method<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+          }
+        }
+
+        if (ChoiceLay == "TESTIN")
+        {
+          //ALL THE STUFF NEEDED JUST TO SET THE FRIGGIN TITLE
+          rechap = /CHAPTER§/g;
+          respace = / /g;
+          ChoiceLength = ChoiceSub.length;
+          ChoiceType = ChoiceSub.substring(8,12);
+          ChoiceAll = ChoiceSub.substring(8,ChoiceLength);
+          ChapterTitleRaw = "<<<Whole Book>>>";
+          top.location.href = "DBG§ChoiceSub is " + ChoiceSub + " and ChoiceType is " + ChoiceType + " and ChoiceAll is " + ChoiceAll;
+          if (ChoiceType == "CHAP")
+          {
+            var ChoiceArray = new Array();
+            var ChoiceArray = ChoiceSub.split("§");
+            ChapterNumber = (ChoiceArray[2]/1);
+            ChapterTitleRaw = ChapterName[ChapterNumber];
+          }
+          if (ChoiceAll == "ALL§EASY§12")
+          {
+            ChapterTitleRaw = "<<<Easy Level>>>";
+          }
+          if (ChoiceAll == "ALL§AVER§12")
+          {
+            ChapterTitleRaw = "<<<Average Level>>>";
+          }
+          if (ChoiceAll == "ALL§DIFF§12")
+          {
+            ChapterTitleRaw = "<<<Difficult Level>>>";
+          }
+          if (ChoiceSub == "WORDSNOTED§ALL§WORDTST§12")
+          {
+            ChapterTitleRaw = "<<<My Words>>>";
+          }
+          ChapterTitle = ChapterTitleRaw;
+          if (ChapterTitle == "<<<Whole Book>>>" || ChapterTitle == "<<<Easy Level>>>" || ChapterTitle == "<<<Average Level>>>" || ChapterTitle == "<<<Difficult Level>>>" || ChapterTitle == "<<<My Words>>>")
+          {
+             top.location.href = "DBG§ChapterTitle is " + ChapterTitle;
+             top.location.href = "SET§<<<THISTEST"+"TITLE>>>§"+ChapterTitle+"§NO_REFRESH";
+             top.location.href = "SET§<<<THISTEST"+"NUMBER>>>§"+ChapterTitle+"§NO_REFRESH";
+          } else {
+             top.location.href = "DBG§ChapterNumber is " + ChapterNumber;
+             top.location.href = "SET§<<<THISTEST"+"TITLE>>>§<<<CHAPTERNAME"+ChapterNumber+">>>§NO_REFRESH";
+             top.location.href = "SET§<<<THISTEST"+"NUMBER>>>§"+ChapterNumber+"§NO_REFRESH";
+          }
+          // special case if My Words is empty
+          if (ChapterTitle == "<<<My Words>>>" && <<<TEACHERCURRENTMYWORDSNUMBER>>> < 1)
+          {
+             top.location.href = "DBG§ChapterTitle is " + ChapterTitle + " but there's no words in My Words list... Go to explanation page";
+             top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+             top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§MyWords<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+          } else {
+             //STUFF FOR THE TEST ITSELF
+             re = /§/g;
+             NewChoiceSub = ChoiceSub.replace(re, "_");
+             top.location.href = "CFG§SAVEDURL§<<<SAVED"+"URL>>>§"+NewChoiceSub+"§YES";
+             top.location.href = "CFG§LAYOUTTEST§PARSE§"+ChoiceSub;
+             top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§HypLernTest.htm§<<<PAGETABLE>>>§NO";
+          }
+        }
+        
+        if (ChoiceLay == "LEARNR" || ChoiceLay == "RETFAC" || ChoiceLay == "CHTFAC" || ChoiceLay == "AVERLO" || ChoiceLay == "AVERHI" || ChoiceLay == "SRSSIN" || ChoiceLay == "SRSSFM" || ChoiceLay == "SRSSFH" || ChoiceLay == "SRSSFD" || ChoiceLay == "SRSSMS" || ChoiceLay == "SRSSMT" || ChoiceLay == "SRSMGN" || ChoiceLay == "KEEPHIFQ" || ChoiceLay == "KEEPTEST")
+        {
+          //First set default variables (which will be overruled per choice)
+          LearnerType = "<<<LEARNERTYPEVALUE>>>";
+          LearnerPace = "<<<LEARNERPACEVALUE>>>";
+          RetentionFactor = <<<RETENTIONFACTOR>>>;
+          ChapterTestFactor = <<<CHAPTERTESTFACTOR>>>;
+          EasyFreq = "<<<EASYFREQ>>>";
+          AverFreqTop = "<<<AVERFREQTOP>>>";
+          AverFreq = "<<<AVERFREQ>>>";
+          DiffFreqTop = "<<<DIFFFREQTOP>>>";
+          IntervalType = "<<<SRSINCR>>>";
+          IntervalTypeFac = <<<SRSINCRFAC>>>;
+          IntervalTypeFacString = "<<<SRSINCRFAC>>>";
+          IntervalSeconds = "<<<SRSINCRRAW>>>";
+          IntervalUnits = "<<<SRSUNIT>>>";
+          IntervalMinutes = "<<<SRSFMIN>>>";
+          IntervalHours = "<<<SRSFHRS>>>";
+          IntervalDays = "<<<SRSFDYS>>>";
+          IntervalMargin = "<<<SRSMARGN>>>";
+          MissedPenalty = "<<<SRSMISD>>>";
+          MissedPenaltyNice = "<<<SRSMISDNICE>>>";
+          IncorrectPenalty = "<<<SRSTSER>>>";
+          IncorrectPenaltyNice = "<<<SRSTSERNICE>>>";
+          //ChoiceSub is stuk achter LEARNR; VRGD:<<<Very Good>>>, GOOD:<<<Good>>>, AVER:<<<Average>>>, MBAD:<<<Poor>>>, VRBD:<<<Very Poor>>>; set set to set values
+          if (ChoiceLay == "LEARNR" && ChoiceSub == "VRGD") {
+             LearnerType = "<<<Very Good>>>";
+             RetentionFactor = "6";
+             ChapterTestFactor = "10";
+             EasyFreq = "3";
+             AverFreqTop = "2";
+             AverFreq = "2";
+             DiffFreqTop = "1";
+             MissedPenalty = "0";
+             MissedPenaltyNice = "0";
+             IncorrectPenalty = "0";
+             IncorrectPenaltyNice = "0";
+          }
+          if (ChoiceLay == "LEARNR" && ChoiceSub == "GOOD") {
+             LearnerType = "<<<Good>>>";
+             RetentionFactor = "9";
+             ChapterTestFactor = "6";
+             EasyFreq = "4";
+             AverFreqTop = "3";
+             AverFreq = "2";
+             DiffFreqTop = "1";
+             MissedPenalty = "0";
+             MissedPenaltyNice = "0";
+             IncorrectPenalty = "0";
+             IncorrectPenaltyNice = "0";
+          }
+          if (ChoiceLay == "LEARNR" && ChoiceSub == "AVER") {
+             LearnerType = "<<<Average>>>";
+             RetentionFactor = "12";
+             ChapterTestFactor = "3";
+             EasyFreq = "6";
+             AverFreqTop = "5";
+             AverFreq = "3";
+             DiffFreqTop = "2";
+             MissedPenalty = "1";
+             MissedPenaltyNice = "1";
+             IncorrectPenalty = "1";
+             IncorrectPenaltyNice = "1";
+          }
+          if (ChoiceLay == "LEARNR" && ChoiceSub == "MBAD") {
+             LearnerType = "<<<Poor>>>";
+             RetentionFactor = "15";
+             ChapterTestFactor = "2";
+             EasyFreq = "10";
+             AverFreqTop = "9";
+             AverFreq = "4";
+             DiffFreqTop = "3";
+             MissedPenalty = "2";
+             MissedPenaltyNice = "2";
+             IncorrectPenalty = "2";
+             IncorrectPenaltyNice = "2";
+          }
+          if (ChoiceLay == "LEARNR" && ChoiceSub == "VRBD") {
+             LearnerType = "<<<Very Poor>>>";
+             RetentionFactor = "20";
+             ChapterTestFactor = "1";
+             EasyFreq = "20";
+             AverFreqTop = "19";
+             AverFreq = "6";
+             DiffFreqTop = "5";
+             MissedPenalty = "3";
+             MissedPenaltyNice = "3";
+             IncorrectPenalty = "3";
+             IncorrectPenaltyNice = "3";
+          }
+          if (ChoiceLay == "LEARNR" && ChoiceSub == "FAST") {
+             LearnerPace = "<<<As Fast As Possible>>>";
+             IntervalType = "<<<None>>>";
+             IntervalTypeFac = 0;
+             IntervalTypeFacString = "0";
+             IntervalSeconds = "0";
+             IntervalMinutes = "0";
+             IntervalHours = "0";
+             IntervalDays = "0";
+             IntervalMargin = "0";
+          }
+          if (ChoiceLay == "LEARNR" && ChoiceSub == "MIDD") {
+             LearnerPace = "<<<Between Fast And Optimal>>>";
+             IntervalType = "<<<Equally Spaced>>>";
+             IntervalTypeFac = 1;
+             IntervalTypeFacString = "1";
+             IntervalUnits = "<<<days>>>";
+             IntervalSeconds = "86400";
+             IntervalMinutes = "1440";
+             IntervalHours = "24";
+             IntervalDays = "1";
+             IntervalMargin = "10";
+          }
+          if (ChoiceLay == "LEARNR" && ChoiceSub == "SLOW") {
+             LearnerPace = "<<<In A Pace Optimal To Learning>>>";
+             IntervalType = "Increment¯Factor¯1.2";
+             IntervalTypeFac = 1.2;
+             IntervalTypeFacString = "1.2";
+             IntervalUnits = "<<<days>>>";
+             IntervalSeconds = "86400";
+             IntervalMinutes = "1440";
+             IntervalHours = "24";
+             IntervalDays = "1";
+             IntervalMargin = "20";
+          }
+          if (ChoiceLay == "RETFAC") {
+             LearnerType = "Custom";
+             RetentionFactor = ChoiceSub;
+             AncientReminder = Math.round(IntervalSeconds/1);
+             OldReminder = Math.round((AncientReminder/1) + ((AncientReminder/1)*IntervalTypeFac));
+             for (var ReminderNumber=3; ReminderNumber < 22; ReminderNumber++) {
+                Reminder = Math.round((OldReminder/1) + (((OldReminder/1) - (AncientReminder/1))*IntervalTypeFac));
+                // only need this to get duration
+                AncientReminder = Math.round(OldReminder/1);
+                OldReminder = Math.round(Reminder/1);
+                if (ReminderNumber == RetentionFactor) {
+                   if ( Reminder < 86400 ) {
+                      IntervalDivider = 3600;
+                      DurationUnit = "<<<hours>>>";
+                   } else {
+                      IntervalDivider = 86400;
+                      DurationUnit = "<<<days>>>";
+                   }
+                   LastReminder = numberDecs((Reminder/IntervalDivider),-2);
+                   if ( ( DurationUnit == "<<<hours>>>" && LastReminder > 8544 ) || ( DurationUnit == "<<<days>>>" && LastReminder > 356 ) ) {
+                      LastReminder = "<<<more¯than¯a¯year>>>";
+                   } else {
+                      LastReminder = LastReminder + "¯" + DurationUnit;
+                   }
+                   top.location.href = "SET§<<<DUR"+"ATION>>>§"+LastReminder+"§NO_REFRESH";
+                }
+             }
+          }
+          if (ChoiceLay == "CHTFAC") {
+             LearnerType = "Custom";
+             ChapterTestFactor = ChoiceSub;
+          }
+          if (ChoiceLay == "AVERLO") {
+             LearnerType = "Custom";
+             EasyFreq = ((<<<EASYFREQ>>>)/1);
+             AverFreqTop = EasyFreq - 1;
+             AverFreq = ((ChoiceSub)/1);
+             if (AverFreq > AverFreqTop) {
+                AverFreq = AverFreqTop;
+             }
+             if (AverFreq < 2) {
+                AverFreq = 2;
+             }
+             DiffFreqTop = AverFreq - 1;
+          }
+          if (ChoiceLay == "AVERHI") {
+             LearnerType = "Custom";
+             AverFreqTop = ((ChoiceSub)/1);
+             EasyFreq = AverFreqTop + 1;
+             AverFreq = ((<<<AVERFREQ>>>)/1);
+             if (AverFreqTop < AverFreq+1) {
+                AverFreq = AverFreqTop - 1;
+             }
+             DiffFreqTop = AverFreq - 1;
+          }
+          if (ChoiceLay == "SRSSIN" || ChoiceLay == "LEARNR") {
+             if (ChoiceLay == "SRSSIN") {
+                LearnerPace = "Custom";
+                re = /P/g;
+                IntervalTypeFacString = ChoiceSub.replace(re, "\.");
+                IntervalTypeFac = (IntervalTypeFacString/1);
+                top.location.href = "DBG§ChoiceSub is " + ChoiceSub;
+             }
+             FirstReminder = Math.round(IntervalSeconds/1);
+             SecondReminder = (FirstReminder + ((FirstReminder/1)*IntervalTypeFac));
+             ThirdReminder = (SecondReminder + ((SecondReminder - FirstReminder)*IntervalTypeFac));
+             if (IntervalUnits == "<<<minutes>>>") {
+                IntervalDivider = 60;
+             }
+             if (IntervalUnits == "<<<hours>>>") {
+                IntervalDivider = 3600;
+             }
+             if (IntervalUnits == "<<<days>>>") {
+                IntervalDivider = 86400;
+             }
+             NiceFirstReminder = numberDecs((FirstReminder/IntervalDivider),-2);
+             NiceSecondReminder = numberDecs((SecondReminder/IntervalDivider),-2);
+             NiceThirdReminder = numberDecs((ThirdReminder/IntervalDivider),-2);
+             if (IntervalTypeFac > 0) {
+                Schedule = NiceFirstReminder+"<<<COM"+"MA>>>¯"+NiceSecondReminder+"<<<COM"+"MA>>>¯"+NiceThirdReminder+"<<<COM"+"MA>>>¯etc.¯" + IntervalUnits + "¯after¯first¯'meet'";
+                IntervalType = "<<<Equally Spaced>>>";
+                if (IntervalTypeFac > 1) {
+                   IntervalType = "Increment¯Factor¯"+IntervalTypeFacString;
+                }
+             } else {
+                Schedule = "<<<None>>>";
+                IntervalType = "<<<None>>>";
+                IntervalSeconds = 0;
+                IntervalMinutes = 0;
+                IntervalHours = 0;
+                IntervalDays = 0;
+             }
+             top.location.href = "SET§<<<SRS"+"SCHED>>>§"+Schedule+"§NO_REFRESH";
+             AncientReminder = Math.round(IntervalSeconds/1);
+             top.location.href = "SET§<<<SRS"+"REM1>>>§"+AncientReminder+"§NO_REFRESH";
+             OldReminder = Math.round((AncientReminder/1) + ((AncientReminder/1)*IntervalTypeFac));
+             top.location.href = "SET§<<<SRS"+"REM2>>>§"+OldReminder+"§NO_REFRESH";
+             for (var ReminderNumber=3; ReminderNumber < 22; ReminderNumber++) {
+                Reminder = Math.round((OldReminder/1) + (((OldReminder/1) - (AncientReminder/1))*IntervalTypeFac));
+                //top.location.href = "DBG§Reminder is " + Reminder;
+                // park these guys in memory so I don't have to calculate them in vb for every reminder
+                top.location.href = "SET§<<<SRS"+"REM"+ReminderNumber+">>>§"+Reminder+"§NO_REFRESH";
+                AncientReminder = Math.round(OldReminder/1);
+                OldReminder = Math.round(Reminder/1);
+                if (ReminderNumber == RetentionFactor) {
+                   if ( Reminder < 86400 ) {
+                      IntervalDivider = 3600;
+                      DurationUnit = "<<<hours>>>";
+                   } else {
+                      IntervalDivider = 86400;
+                      DurationUnit = "<<<days>>>";
+                   }
+                   LastReminder = numberDecs((Reminder/IntervalDivider),-2);
+                   if ( ( DurationUnit == "<<<hours>>>" && LastReminder > 8544 ) || ( DurationUnit == "<<<days>>>" && LastReminder > 356 ) ) {
+                      LastReminder = "<<<more¯than¯a¯year>>>";
+                   } else {
+                      LastReminder = LastReminder + "¯" + DurationUnit;
+                   }
+                   top.location.href = "SET§<<<DUR"+"ATION>>>§"+LastReminder+"§NO_REFRESH";
+                }
+             }
+          }
+          if (ChoiceLay == "SRSSFM" || ChoiceLay == "SRSSFH" || ChoiceLay == "SRSSFD") {
+             LearnerPace = "Custom";
+             if (ChoiceLay == "SRSSFM") {
+                IntervalSeconds = ((ChoiceSub/1)*60);
+                IntervalDivider = 60;
+                IntervalUnits = "<<<minutes>>>";
+             }
+             if (ChoiceLay == "SRSSFH") {
+                IntervalSeconds = ((ChoiceSub/1)*3600);
+                IntervalDivider = 3600;
+                IntervalUnits = "<<<hours>>>";
+             }
+             if (ChoiceLay == "SRSSFD") {
+                IntervalSeconds = ((ChoiceSub/1)*86400);
+                IntervalDivider = 86400;
+                IntervalUnits = "<<<days>>>";
+             }
+             if (IntervalTypeFac == "0") {
+                IntervalType = "<<<Equally Spaced>>>";
+                IntervalTypeFac = 1;
+             }
+             FirstReminder = (IntervalSeconds/1);
+             SecondReminder = (FirstReminder + ((FirstReminder/1)*IntervalTypeFac));
+             ThirdReminder = (SecondReminder + ((SecondReminder - FirstReminder)*IntervalTypeFac));
+             NiceFirstReminder = numberDecs((IntervalSeconds/IntervalDivider),-2);
+             NiceSecondReminder = numberDecs((SecondReminder/IntervalDivider),-2);
+             NiceThirdReminder = numberDecs((ThirdReminder/IntervalDivider),-2);
+             if (IntervalSeconds == 0) {
+                IntervalType = "<<<None>>>";
+                IntervalTypeFac = 0;
+                Schedule = "<<<None>>>";
+             } else {
+                Schedule = NiceFirstReminder+"<<<COM"+"MA>>>¯"+NiceSecondReminder+"<<<COM"+"MA>>>¯"+NiceThirdReminder+"<<<COM"+"MA>>>¯etc.¯"+IntervalUnits+"¯<<<after>>>¯<<<first>>>¯<<<meet>>>";
+             }
+             top.location.href = "SET§<<<SRS"+"SCHED>>>§"+Schedule+"§NO_REFRESH";
+             IntervalMinutes = numberDecs(FirstReminder/60,-2);
+             IntervalHours = numberDecs(FirstReminder/3600,-2);
+             IntervalDays = numberDecs(FirstReminder/86400,-2);
+             AncientReminder = Math.round(IntervalSeconds/1);
+             top.location.href = "SET§<<<SRS"+"REM1>>>§"+AncientReminder+"§NO_REFRESH";
+             OldReminder = Math.round((AncientReminder/1) + ((AncientReminder/1)*IntervalTypeFac));
+             top.location.href = "SET§<<<SRS"+"REM2>>>§"+OldReminder+"§NO_REFRESH";
+             for (var ReminderNumber=3; ReminderNumber < 22; ReminderNumber++) {
+                Reminder = Math.round((OldReminder/1) + (((OldReminder/1) - (AncientReminder/1))*IntervalTypeFac));
+                //top.location.href = "DBG§Reminder is " + Reminder;
+                // park these guys in memory so I don't have to calculate them in vb for every reminder
+                top.location.href = "SET§<<<SRS"+"REM"+ReminderNumber+">>>§"+Reminder+"§NO_REFRESH";
+                AncientReminder = Math.round(OldReminder/1);
+                OldReminder = Math.round(Reminder/1);
+                if (ReminderNumber == RetentionFactor) {
+                   if ( Reminder < 86400 ) {
+                      IntervalDivider = 3600;
+                      DurationUnit = "<<<hours>>>";
+                   } else {
+                      IntervalDivider = 86400;
+                      DurationUnit = "<<<days>>>";
+                   }
+                   LastReminder = numberDecs((Reminder/IntervalDivider),-2);
+                   if ( ( DurationUnit == "<<<hours>>>" && LastReminder > 8544 ) || ( DurationUnit == "<<<days>>>" && LastReminder > 356 ) ) {
+                      LastReminder = "<<<more¯than¯a¯year>>>";
+                   } else {
+                      LastReminder = LastReminder + "¯" + DurationUnit;
+                   }
+                   top.location.href = "SET§<<<DUR"+"ATION>>>§"+LastReminder+"§NO_REFRESH";
+                }
+             }
+          }
+          if (ChoiceLay == "SRSMGN") {
+             LearnerPace = "Custom";
+             IntervalMargin = ChoiceSub;
+          }
+          if (ChoiceLay == "SRSSMS") {
+             LearnerType = "Custom";
+             MissedPenalty = ChoiceSub;
+             MissedPenaltyNice = ChoiceSub;
+             if (MissedPenalty == "H") {
+                MissedPenaltyNice = "half¯the¯number";
+             }
+             if (MissedPenalty == "M") {
+                MissedPenaltyNice = "to¯the¯max";
+             }
+          }
+          if (ChoiceLay == "SRSSMT") {
+             LearnerType = "Custom";
+             IncorrectPenalty = ChoiceSub;
+             IncorrectPenaltyNice = ChoiceSub;
+             if (IncorrectPenalty == "H") {
+                IncorrectPenaltyNice = "half¯the¯number";
+             }
+             if (IncorrectPenalty == "M") {
+                IncorrectPenaltyNice = "to¯the¯max";
+             }
+          }
+          if (IntervalTypeFac > 0) {
+             top.location.href = "SET§<<<AgeOrNext"+"Reminder>>>§<<<NextReminder>>>§NO_REFRESH";
+          } else {
+             top.location.href = "SET§<<<AgeOrNext"+"Reminder>>>§<<<Age>>>§NO_REFRESH";
+          }
+          if (LearnerType == "Custom") {
+            if (RetentionFactor < 7) {
+              LearnerType = "<<<Very Good>>>";
+            }
+            if (RetentionFactor > 6 && RetentionFactor < 10) {
+              LearnerType = "<<<Good>>>";
+            }
+            if (RetentionFactor > 9 && RetentionFactor < 13) {
+              LearnerType = "<<<Average>>>";
+            }
+            if (RetentionFactor > 12 && RetentionFactor < 16) {
+              LearnerType = "<<<Poor>>>";
+            }
+            if (RetentionFactor > 15) {
+              LearnerType = "<<<Very Poor>>>";
+            }
+          }
+          if (LearnerPace == "Custom") {
+            LearnerPace = "<<<In My Own Speed>>>";
+          }
+          top.location.href = "SET§<<<LEARNER"+"TYPEVALUE>>>§"+LearnerType+"§NO_REFRESH";
+          top.location.href = "SET§<<<LEARNER"+"PACEVALUE>>>§"+LearnerPace+"§NO_REFRESH";
+          top.location.href = "SET§<<<RETENTION"+"FACTOR>>>§"+RetentionFactor+"§NO_REFRESH";
+          top.location.href = "SET§<<<CHAPTERTEST"+"FACTOR>>>§"+ChapterTestFactor+"§NO_REFRESH";
+          top.location.href = "SET§<<<EASY"+"FREQ>>>§"+EasyFreq+"§NO_REFRESH";
+          top.location.href = "SET§<<<AVER"+"FREQTOP>>>§"+AverFreqTop+"§NO_REFRESH";
+          top.location.href = "SET§<<<AVER"+"FREQ>>>§"+AverFreq+"§NO_REFRESH";
+          top.location.href = "SET§<<<DIFF"+"FREQTOP>>>§"+DiffFreqTop+"§NO_REFRESH";
+          top.location.href = "SET§<<<SRS"+"INCR>>>§"+IntervalType+"§NO_REFRESH";
+          top.location.href = "SET§<<<SRS"+"INCRRAW>>>§"+IntervalSeconds+"§NO_REFRESH";
+          top.location.href = "SET§<<<SRS"+"INCRFAC>>>§"+IntervalTypeFac+"§NO_REFRESH";
+          top.location.href = "SET§<<<SRS"+"UNIT>>>§"+IntervalUnits+"§NO_REFRESH";
+          top.location.href = "SET§<<<SRS"+"FMIN>>>§"+IntervalMinutes+"§NO_REFRESH";
+          top.location.href = "SET§<<<SRS"+"FHRS>>>§"+IntervalHours+"§NO_REFRESH";
+          top.location.href = "SET§<<<SRS"+"FDYS>>>§"+IntervalDays+"§NO_REFRESH";
+          top.location.href = "SET§<<<SRS"+"MARGN>>>§"+IntervalMargin+"§NO_REFRESH";
+          top.location.href = "SET§<<<SRS"+"MISD>>>§"+MissedPenalty+"§NO_REFRESH";
+          top.location.href = "SET§<<<SRS"+"MISDNICE>>>§"+MissedPenaltyNice+"§NO_REFRESH";
+          top.location.href = "SET§<<<SRS"+"TSER>>>§"+IncorrectPenalty+"§NO_REFRESH";
+          top.location.href = "SET§<<<SRS"+"TSERNICE>>>§"+IncorrectPenaltyNice+"§NO_REFRESH";
+          top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+          top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Settings.htm§<<<PAGETABLE>>>§NO";
+        }
+      }
+      else
+      {
+        if (ChoiceBas == "SAVESA" || Layoute == "EXITEXITEXIT" || Layoute == "SAVEANDEXIT")
+        {
+          top.location.href = Layoute;
+        }
+        else
+        {
+          //top.location.href = "do-nothing";
+        }
+      }
+    }
+
+  function ChangeWayout(targ){
+      Layoute = targ;
+      ChoiceLength = Layoute.length;
+      ChoiceBas = Layoute.substring(0,6);
+      ChoiceLay = Layoute.substring(6,14);
+      ChoiceSub = Layoute.substring(12,ChoiceLength);
+      top.location.href = "AUD§DummySound";
+      if (ChoiceBas == "LAYOUT") {
+          if (ChoiceLay == "SRSSFQCH" || ChoiceLay == "SRSSKTCH" || ChoiceLay == "SRSSNFMW" || ChoiceLay == "SRSSFLCA" || ChoiceLay == "AUTOSAVE") {
+             if (ChoiceLay == "SRSSFQCH" ) {
+                if ( "<<<ALSOHIFREQNICE>>>" == "Unchecked" ) {
+                   AlsoHiFreqNice = "Checked";
+                } else {
+                   AlsoHiFreqNice = "Unchecked";
+                }
+             } else {
+                AlsoHiFreqNice = "<<<ALSOHIFREQNICE>>>";
+             }
+             if (ChoiceLay == "SRSSKTCH" ) {
+                if ( "<<<KEEPTESTEDNICE>>>" == "Unchecked" ) {
+                   KeepTestedNice = "Checked";
+                } else {
+                   KeepTestedNice = "Unchecked";
+                }
+             } else {
+                KeepTestedNice = "<<<KEEPTESTEDNICE>>>";
+             }
+             if (ChoiceLay == "SRSSNFMW" ) {
+                if ( "<<<NONEFIMYWONICE>>>" == "Unchecked" ) {
+                   NoNeFiMyWoNice = "Checked";
+                } else {
+                   NoNeFiMyWoNice = "Unchecked";
+                }
+             } else {
+                NoNeFiMyWoNice = "<<<NONEFIMYWONICE>>>";
+             }
+             if (ChoiceLay == "SRSSFLCA" ) {
+                if ( "<<<MYWOFLCARDNICE>>>" == "Unchecked" ) {
+                   MyWoFlCardNice = "Checked";
+                } else {
+                   MyWoFlCardNice = "Unchecked";
+                }
+             } else {
+                MyWoFlCardNice = "<<<MYWOFLCARDNICE>>>";
+             }
+             if (ChoiceLay == "AUTOSAVE" ) {
+                if ( "<<<AUTOSAVINGNICE>>>" == "Unchecked" ) {
+                   AutoSaveNice = "Checked";
+                } else {
+                   AutoSaveNice = "Unchecked";
+                }
+             } else {
+                AutoSaveNice = "<<<AUTOSAVINGNICE>>>";
+             }
+          }
+          top.location.href = "SET§<<<ALSO"+"HIFREQNICE>>>§"+AlsoHiFreqNice+"§NO_REFRESH";
+          top.location.href = "SET§<<<KEEP"+"TESTEDNICE>>>§"+KeepTestedNice+"§NO_REFRESH";
+          top.location.href = "SET§<<<NONE"+"FIMYWONICE>>>§"+NoNeFiMyWoNice+"§NO_REFRESH";
+          top.location.href = "SET§<<<MYWO"+"FLCARDNICE>>>§"+MyWoFlCardNice+"§NO_REFRESH";
+          top.location.href = "SET§<<<AUTO"+"SAVINGNICE>>>§"+AutoSaveNice+"§NO_REFRESH";
+          top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+          top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Settings.htm§<<<PAGETABLE>>>§NO";
+        }
+    }
+    
+    function ChangePage(targ,selObj,restore){
+      FirstPage = selObj.options[selObj.selectedIndex].value;
+      FirstPage = (FirstPage/1);
+      SecondPage = (FirstPage/1) + (1/1);
+      TeacherCurrentChapterLastPage = (<<<TEACHERCURRENTCHAPTERLASTPAGE>>>/1);
+      if ( ( "<<<TEACHERMODECURRENT>>>" == "OFF" ) || ( ( "<<<TEACHERMODECURRENT>>>" == "ON" ) && ( FirstPage < TeacherCurrentChapterLastPage ) ) ) {
+        if ( "<<<TEACHERMODECURRENT>>>" == "ON" )
+        {
+          //save page
+          top.location.href = "SET§<<<TEACHERCURRENT"+"CHAPTERPAGE>>>§"+FirstPage+"§NO_REFRESH";
+        }
+        top.location.href = "AUD§DummySound";
+        top.location.href = "GET§<<<BASEHTMLFILEPART>>>Main.htm<>"+FirstPage+"<>§<<<BASEHTMLFILEPART>>>"+FirstPage+".htm<><<<BASEHTMLFILEPART>>>"+SecondPage+".htm§<<<PAGETABLE>>><><<<PTWOTABLE>>>§NO";
+      } else {
+        top.location.href = "CFG§LAYOUTSINGLE§PARSE";
+        top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Progress<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+      }
+    }
+    function ChangePageNew(pagenr){
+      FirstPage = (pagenr/1);
+      SecondPage = (FirstPage/1) + (1/1);
+      TeacherCurrentChapterLastPage = (<<<TEACHERCURRENTCHAPTERLASTPAGE>>>/1);
+      if ( ( "<<<TEACHERMODECURRENT>>>" == "OFF" ) || ( ( "<<<TEACHERMODECURRENT>>>" == "ON" ) && ( FirstPage < TeacherCurrentChapterLastPage ) ) ) {
+        top.location.href = "CFG§<<<SAVEDLAYOUT>>>§PARSE";
+        top.location.href = "GET§<<<BASEHTMLFILEPART>>>Main.htm<>"+FirstPage+"<>§<<<BASEHTMLFILEPART>>>"+FirstPage+".htm<><<<BASEHTMLFILEPART>>>"+SecondPage+".htm§<<<PAGETABLE>>><><<<PTWOTABLE>>>§NO";
+      } else {
+        // die
+      }
+    }
+
+    function TurnTeacherMode(TeacherMode){
+      top.location.href = "CFG§TEACHERMODE" + TeacherMode + "§PARSE";
+      if ( "<<<TEACHERMODECURRENT>>>" == "ON" )
+      {
+        //teachermode from on to off, stay where you are
+        top.location.href = "SET§<<<TEACHERMODE"+"WARNING>>>§<<<TeacherMode"+"Warning>>>§NO_REFRESH";
+        if (ThisIsATest == "123")
+        {
+           ChoiceSub = "<<<SAVEDURL>>>";
+           re = /_/g;
+           NewChoiceSub = ChoiceSub.replace(re, "§");
+           top.location.href = "CFG§LAYOUTTEST§PARSE§"+NewChoiceSub;
+           top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§HypLernTest.htm§<<<PAGETABLE>>>§NO";
+        } else {
+           top.location.href = "SET§<<<DUMMYVAR>>>§<<<DUMMYVAL>>>§DO_REFRESH";
+        }
+      } else {
+        //teachermode from off to on, goto teachercurrent page
+        top.location.href = "SET§<<<TEACHERMODE"+"WARNING>>>§§NO_REFRESH";
+        if (ThisIsATest == "123")
+        {
+           SecondPage = (<<<TEACHERCURRENTCHAPTERPAGE>>>/1) + (1/1);
+           top.location.href = "SET§<<<PAGE"+"NUMBER>>>§<<<TEACHERCURRENTCHAPTERPAGE>>>§NO_REFRESH";
+           top.location.href = "SET§<<<NEXT"+"PAGE>>>§"+SecondPage+"§NO_REFRESH";
+           ChoiceSub = "<<<SAVEDURL>>>";
+           re = /_/g;
+           NewChoiceSub = ChoiceSub.replace(re, "§");
+           top.location.href = "CFG§LAYOUTTEST§PARSE§"+NewChoiceSub;
+           top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§HypLernTest.htm§<<<PAGETABLE>>>§NO";
+        } else {
+           if (ThisIsATest == "single")
+           {
+              SecondPage = (<<<TEACHERCURRENTCHAPTERPAGE>>>/1) + (1/1);
+              top.location.href = "SET§<<<PAGE"+"NUMBER>>>§<<<TEACHERCURRENTCHAPTERPAGE>>>§NO_REFRESH";
+              top.location.href = "SET§<<<NEXT"+"PAGE>>>§"+SecondPage+"§NO_REFRESH";
+              top.location.href = "SET§<<<DUMMYVAR>>>§<<<DUMMYVAL>>>§DO_REFRESH";
+           } else {
+              SecondPage = (<<<TEACHERCURRENTCHAPTERPAGE>>>/1) + (1/1);
+              top.location.href = "GET§<<<BASEHTMLFILEPART>>>Main.htm<><<<TEACHERCURRENTCHAPTERPAGE>>><>§<<<BASEHTMLFILEPART>>><<<TEACHERCURRENTCHAPTERPAGE>>>.htm<><<<BASEHTMLFILEPART>>>"+SecondPage+".htm§<<<PAGETABLE>>><><<<PTWOTABLE>>>§NO";
+           }
+        }
+      }
+    }
+    
+    function toggleMenu(toggleMenuMode){
+      top.location.href = "DBG§Toggle Menu " + toggleMenuMode;
+      top.location.href = "CFG§MENUVISIBILITYSTATE§<<<MENU" + "VISIBILITYSTATE>>>§" + toggleMenuMode + "§YES";
+      //reload page, the newly set MENUVISIBILITYSTATE option should make sure whether menu is visible
+      if (toggleMenuMode == "Off") {
+        top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainOff.htm<><<<PAGENUMBER>>><>§<<<BASEHTMLFILEPART>>><<<PAGENUMBER>>>.htm<><<<BASEHTMLFILEPART>>><<<NEXTPAGE>>>.htm§<<<PAGETABLE>>><><<<PTWOTABLE>>>§NO";
+      } else {
+        top.location.href = "GET§<<<BASEHTMLFILEPART>>>Main.htm<><<<PAGENUMBER>>><>§<<<BASEHTMLFILEPART>>><<<PAGENUMBER>>>.htm<><<<BASEHTMLFILEPART>>><<<NEXTPAGE>>>.htm§<<<PAGETABLE>>><><<<PTWOTABLE>>>§NO";
+      }
+    }
+
+    function TurnTeacherModeHelp(TeacherMode){
+      top.location.href = "CFG§TEACHERMODEHELP" + TeacherMode + "§PARSE";
+      //teachermodehelp change, reload help page
+      top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Help<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+    }
+
+    function BoterGeultje(Choice){
+      if ( "<<<TEACHERMODECURRENT>>>" == "ON" && "<<<TEACHERPERMISSION>>>" == "NO" ) {
+        top.location.href = "CFG§TEACHERTEMPPERMISSIONON§PARSE";
+      }
+      top.location.href = Choice;
+    }
+
+    function HoningPotje(Choice){
+      if ( "<<<TEACHERMODEHELPCURRENT>>>" == "ON" && "<<<TEACHERHELPPERMISSION>>>" == "NO" ) {
+        top.location.href = "CFG§TEACHERHELPTEMPPERMISSIONON§PARSE";
+      }
+      top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Help<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+    }
+
+
+  var TextColorMap = "no";
+  function Show(anchor_id, com_id)
+  {
+    showtype = anchor_id.substring(0,6);
+    if ( ( showtype == "progress" ) || ( "<<<TEACHERMODECURRENT>>>" == "OFF" ) || ( "<<<TEACHERMODECURRENT>>>" == "ON" && "<<<TEACHERPERMISSION>>>" == "YES" ) ) {
+      c = document.all(com_id);
+      a = document.all(anchor_id);
+      if (null != c && null == c.length && null != a && null == a.length)
+      {
+        var cw = c.offsetWidth;
+        var ch = c.offsetHeight;
+        var aw = a.offsetWidth;
+        var ah = a.offsetHeight;
+        var x  = a.offsetLeft;
+        var y  = a.offsetTop;
+        var el = a;
+        while (el.tagName != "BODY") 
+        {
+          el = el.offsetParent;
+          x = x + 10 + el.offsetLeft;
+          y = y + 10 + el.offsetTop;
+        }
+        var bw = document.body.clientWidth;
+        var bh = document.body.clientHeight;
+        var bsl = document.body.scrollLeft;
+        var bst = document.body.scrollTop;
+        if (x + cw + ah / 2 > bw + bsl && x + aw - ah / 2 - cw >= bsl ) 
+        { c.style.left = x + aw - ah / 2 - cw; }
+        else 
+        { c.style.left = x + ah / 2; }
+        if (y + ch + ah / 2 > bh + bst && y + ah / 2 - ch >= bst ) 
+        { c.style.top = y + ah / 2 - ch; }
+        else 
+        { c.style.top = y + ah / 2; }
+        c.style.visibility = "visible";
+      }
+    }
+  }
+
+  function ShowAlt(anchor_id, com_id)
+  {
+      c = document.all(com_id);
+      a = document.all(anchor_id);
+      d = document.all("ietsnetjes");
+      if (null != c && null == c.length && null != a && null == a.length)
+      {
+        var cw = c.offsetWidth;
+        var ch = c.offsetHeight;
+        var aw = a.offsetWidth;
+        var ah = a.offsetHeight;
+        var x  = d.offsetLeft + 60;
+        var y  = a.offsetTop;
+        var el = a;
+        while (el.tagName != "BODY") 
+        {
+          el = el.offsetParent;
+          y = y + 10 + el.offsetTop;
+        }
+        var bw = document.body.clientWidth;
+        var bh = document.body.clientHeight;
+        var bsl = document.body.scrollLeft;
+        var bst = document.body.scrollTop;
+        if (x + cw + ah / 2 > bw + bsl && x + aw - ah / 2 - cw >= bsl ) 
+        { c.style.left = x + aw - ah / 2 - cw; }
+        else 
+        { c.style.left = x + ah / 2; }
+        if (y + ch + ah / 2 > bh + bst && y + ah / 2 - ch >= bst ) 
+        { c.style.top = y + ah / 2 - ch; }
+        else 
+        { c.style.top = y + ah / 2; }
+        c.style.visibility = "visible";
+      }
+  }
+
+  function ShowHelp(anchor_id, com_id)
+  {
+    if ( ( "<<<TEACHERMODEHELPCURRENT>>>" == "OFF" ) || ( "<<<TEACHERMODEHELPCURRENT>>>" == "ON" && "<<<TEACHERHELPPERMISSION>>>" == "YES" ) ) {
+      c = document.all(com_id);
+      a = document.all(anchor_id);
+      if (null != c && null == c.length && null != a && null == a.length)
+      {
+        var cw = c.offsetWidth;
+        var ch = c.offsetHeight;
+        var aw = a.offsetWidth;
+        var ah = a.offsetHeight;
+        var x  = a.offsetLeft;
+        var y  = a.offsetTop;
+        var el = a;
+        while (el.tagName != "BODY") 
+        {
+          el = el.offsetParent;
+          x = x + 10 + el.offsetLeft;
+          y = y + 10 + el.offsetTop;
+        }
+        var bw = document.body.clientWidth;
+        var bh = document.body.clientHeight;
+        var bsl = document.body.scrollLeft;
+        var bst = document.body.scrollTop;
+        if (x + cw + ah / 2 > bw + bsl && x + aw - ah / 2 - cw >= bsl ) 
+        { c.style.left = x + aw - ah / 2 - cw; }
+        else 
+        { c.style.left = x + ah / 2; }
+        if (y + ch + ah / 2 > bh + bst && y + ah / 2 - ch >= bst ) 
+        { c.style.top = y + ah / 2 - ch; }
+        else 
+        { c.style.top = y + ah / 2; }
+        c.style.visibility = "visible";
+      }
+    }
+  }
+  
+  function ShowSentence(anchor_id, com_id)
+  {
+      c = document.all(com_id);
+      a = document.all(anchor_id);
+      if (null != c && null == c.length && null != a && null == a.length)
+      {
+        var cw = c.offsetWidth;
+        var ch = c.offsetHeight;
+        var aw = a.offsetWidth;
+        var ah = a.offsetHeight;
+        var x  = a.offsetLeft;
+        var y  = a.offsetTop;
+        var el = a;
+        while (el.tagName != "BODY") 
+        {
+          el = el.offsetParent;
+          x = x + 10;
+          y = y + 15;
+        }
+        var bw = document.body.clientWidth;
+        var bh = document.body.clientHeight;
+        var bsl = document.body.scrollLeft;
+        var bst = document.body.scrollTop;
+        if (x + cw + ah / 2 > bw + bsl && x + aw - ah / 2 - cw >= bsl ) 
+        { c.style.left = x + aw - ah / 2 - cw; }
+        else 
+        { c.style.left = x + ah / 2; }
+        if (y + ch + ah / 2 > bh + bst && y + ah / 2 - ch >= bst ) 
+        { c.style.top = y + ah / 2 - ch; }
+        else 
+        { c.style.top = y + ah / 2; }
+        c.style.visibility = "visible";
+      }
+  }
+  
+   function DoHideOrShowSentence(DivId,WordId){
+      c = document.all(DivId);
+      if (bucdruk == "yes" && buc != c) {
+         if (null != buc.style.visibility) {
+            if ("hidden" != buc.style.visibility) {
+               if(Check()) {
+                  if (null != buc && null == buc.length)
+                  {
+                     buc.style.visibility = "hidden";
+                     //buc.style.left = -1000;
+                     //buc.style.top = -1000;
+                  }
+               }
+            }
+         }
+      }
+      if (null != c.style.visibility || bucdruk == "no") {
+         if ("hidden" != c.style.visibility) {
+            if(Check()) {
+               if (null != c && null == c.length)
+               {
+                  c.style.visibility = "hidden";
+                  //c.style.left = -1000;
+                  //c.style.top = -1000;
+               }
+            }
+         } else {
+            bucdruk = "yes";
+            Check();
+            a = document.all(WordId);
+            d = document.all("ietsnetjes");
+            if (null != c && null == c.length && null != a && null == a.length)
+            {
+               var cw = c.offsetWidth;
+               var ch = c.offsetHeight;
+               var aw = a.offsetWidth;
+               var ah = a.offsetHeight;
+               var x  = d.offsetLeft + 45;
+               var y  = a.offsetTop + 53 ;
+               var bw = document.body.clientWidth;
+               var bh = document.body.clientHeight;
+               var bsl = document.body.scrollLeft;
+               var bst = document.body.scrollTop;
+               if (x + cw + ah / 2 > bw + bsl && x + aw - ah / 2 - cw >= bsl ) 
+               { c.style.left = x + aw - ah / 2 - cw; }
+               else 
+               { c.style.left = x + ah / 2; }
+               if (y + ch + ah / 2 > bh + bst && y + ah / 2 - ch >= bst ) 
+               { c.style.top = y + ah / 2 - ch + ch / 2.5; }
+               else 
+               { c.style.top = y + ah / 2 - ch / 2; }
+               c.style.visibility = "visible";
+            }
+         }
+      }
+      buc = document.all(DivId);
+   }
+
+  function ShowMenu(anchor_id, com_id, xloc, yloc)
+  {
+    if(com_id == "sub_textcolormap")
+    {
+      TextColorMap = "yes" ;
+    }
+    if(Check()) 
+    {
+      c = document.all(com_id);
+      a = document.all(anchor_id);
+			
+      if (null != c && null == c.length && null != a && null == a.length)
+      {
+        var cw = c.offsetWidth;
+        var ch = c.offsetHeight;
+        var aw = a.offsetWidth;
+        var ah = a.offsetHeight;
+        var x  = a.offsetLeft;
+        var y  = a.offsetTop;
+        var el = a;
+        while (el.tagName != "BODY") 
+        {
+          el = el.offsetParent;
+          x = x + 10 - xloc + el.offsetLeft;
+          y = y + 10 - yloc + el.offsetTop;
+        }
+        var bw = document.body.clientWidth;
+        var bh = document.body.clientHeight;
+        var bsl = document.body.scrollLeft;
+        var bst = document.body.scrollTop;
+        if (x + cw + ah / 2 > bw + bsl && x + aw - ah / 2 - cw >= bsl ) 
+        { c.style.left = x + aw - ah / 2 - cw; }
+        else 
+        { c.style.left = x + ah / 2; }
+        if (y + ch + ah / 2 > bh + bst && y + ah / 2 - ch >= bst ) 
+        { c.style.top = y + ah / 2 - ch; }
+        else 
+        { c.style.top = y + ah / 2; }
+        c.style.visibility = "visible";
+      }
+    }
+    if (com_id == "sub_pagecolormap" && TextColorMap == "yes")
+    {
+      Hide('sub_pagecolormap');
+      TextColorMap = "no" ;
+    }
+  }
+  
+  function Hide(com_id) 
+  {
+    ActualHide(com_id);
+    if ( "<<<TEACHERPERMISSION>>>" == "YES" ) {
+      top.location.href = "CFG§TEACHERTEMPPERMISSIONOFF§PARSE";
+      top.location.href = "GET§<<<BASEHTMLFILEPART>>>Main.htm<><<<PAGENUMBER>>><>§<<<BASEHTMLFILEPART>>><<<PAGENUMBER>>>.htm<><<<BASEHTMLFILEPART>>><<<NEXTPAGE>>>.htm<>HypLernWords<<<MYWORDSORDER>>>.htm§<<<PAGETABLE>>><><<<PTWOTABLE>>><><<<WORDLIST>>>§NO";
+    }
+  }
+  
+  function HideHelp(com_id) 
+  {
+    ActualHide(com_id);
+    if ( "<<<TEACHERHELPPERMISSION>>>" == "YES" ) {
+      top.location.href = "CFG§TEACHERHELPTEMPPERMISSIONOFF§PARSE";
+      top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§Help<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
+    }
+  }
+  
+  function HideSentence(com_id) 
+  {
+    ActualHide(com_id);
+  }
+  
+  function ActualHide(com_id)
+  {
+    if(Check())
+    {
+      c = document.all(com_id);
+      if (null != c && null == c.length)
+      {
+        c.style.visibility = "hidden";
+        c.style.left = -1000;
+        c.style.top = -1000;
+      }
+    }
+  }
+  
+  function Check()
+  {
+	ms = navigator.appVersion.indexOf("MSIE");
+	vers = navigator.appVersion.substring(ms + 5, ms + 6);
+	ie4 = (ms > 0) && (parseInt(vers) >= 4);
+	return ie4;
+  }
+  if (Check())
+  {
+        // word meaning pop-up
+	document.styleSheets.dynCom.addRule(".atxt","background: transparent");
+	document.styleSheets.dynCom.addRule(".msocomoff","display: none");
+	document.styleSheets.dynCom.addRule(".ctxt","visibility: hidden");
+	document.styleSheets.dynCom.addRule(".ctxt","position: absolute");
+	document.styleSheets.dynCom.addRule(".ctxt","top: -1000");
+	document.styleSheets.dynCom.addRule(".ctxt","left: -1000");
+	document.styleSheets.dynCom.addRule(".ctxt","width: 8%");
+	document.styleSheets.dynCom.addRule(".ctxt","border: 1px solid black");
+	document.styleSheets.dynCom.addRule(".ctxt","background: pink");
+	document.styleSheets.dynCom.addRule(".ctxt","color: black");
+	document.styleSheets.dynCom.addRule(".ctxt","padding: 3pt 3pt 3pt 3pt");
+	document.styleSheets.dynCom.addRule(".ctxt","z-index: 40");
+	// menu options pop-ups
+	document.styleSheets.dynCom.addRule(".msocomanchor","background: transparent");
+	document.styleSheets.dynCom.addRule(".msochoiceoff","display: none");
+	document.styleSheets.dynCom.addRule(".msochoicetxt","visibility: hidden");
+	document.styleSheets.dynCom.addRule(".msochoicetxt","position: absolute");
+	document.styleSheets.dynCom.addRule(".msochoicetxt","top: -1000");
+	document.styleSheets.dynCom.addRule(".msochoicetxt","left: -1000");
+	document.styleSheets.dynCom.addRule(".msochoicetxt","width: 4%");
+	document.styleSheets.dynCom.addRule(".msochoicetxt","border-top: none");
+	document.styleSheets.dynCom.addRule(".msochoicetxt","border-right: none");
+	document.styleSheets.dynCom.addRule(".msochoicetxt","border-bottom: none");
+	document.styleSheets.dynCom.addRule(".msochoicetxt","border-left: none");
+	document.styleSheets.dynCom.addRule(".msochoicetxt","background: transparent");
+	document.styleSheets.dynCom.addRule(".msochoicetxt","color: black");
+	document.styleSheets.dynCom.addRule(".msochoicetxt","padding: 0pt 0pt 0pt 0pt");
+	document.styleSheets.dynCom.addRule(".msochoicetxt","z-index: 0");
+	// settings alt
+	document.styleSheets.dynCom.addRule(".configsettingsalt","visibility: hidden");
+	document.styleSheets.dynCom.addRule(".configsettingsalt","position: absolute");
+	document.styleSheets.dynCom.addRule(".configsettingsalt","top: -1000");
+	document.styleSheets.dynCom.addRule(".configsettingsalt","left: -1000");
+	document.styleSheets.dynCom.addRule(".configsettingsalt","width: 80%");
+	document.styleSheets.dynCom.addRule(".configsettingsalt","border: 1px solid black");
+	document.styleSheets.dynCom.addRule(".configsettingsalt","background: lightblue");
+	document.styleSheets.dynCom.addRule(".configsettingsalt","color: black");
+	document.styleSheets.dynCom.addRule(".configsettingsalt","padding: 3pt 3pt 3pt 3pt");
+	document.styleSheets.dynCom.addRule(".configsettingsalt","z-index: 40");
+	// progress alt	
+	document.styleSheets.dynCom.addRule(".progressalt","visibility: hidden");
+	document.styleSheets.dynCom.addRule(".progressalt","position: absolute");
+	document.styleSheets.dynCom.addRule(".progressalt","top: -1000");
+	document.styleSheets.dynCom.addRule(".progressalt","left: -1000");
+	document.styleSheets.dynCom.addRule(".progressalt","width: 20%");
+	document.styleSheets.dynCom.addRule(".progressalt","border: 1px solid black");
+	document.styleSheets.dynCom.addRule(".progressalt","background: lightblue");
+	document.styleSheets.dynCom.addRule(".progressalt","color: black");
+	document.styleSheets.dynCom.addRule(".progressalt","padding: 3pt 3pt 3pt 3pt");
+	document.styleSheets.dynCom.addRule(".progressalt","z-index: 40");
+        // mywords sentences pop-up
+	document.styleSheets.dynCom.addRule(".atxt","background: transparent");
+	document.styleSheets.dynCom.addRule(".ftxt","visibility: hidden");
+	document.styleSheets.dynCom.addRule(".ftxt","position: absolute");
+	//document.styleSheets.dynCom.addRule(".ftxt","top: -1000");
+	//document.styleSheets.dynCom.addRule(".ftxt","left: -1000");
+	document.styleSheets.dynCom.addRule(".ftxt","width: 8%");
+	document.styleSheets.dynCom.addRule(".ftxt","border: 1px solid black");
+	document.styleSheets.dynCom.addRule(".ftxt","background: pink");
+	document.styleSheets.dynCom.addRule(".ftxt","color: black");
+	document.styleSheets.dynCom.addRule(".ftxt","padding: 3pt 3pt 3pt 3pt");
+	document.styleSheets.dynCom.addRule(".ftxt","z-index: 0");
+	// total sentence pop-ups
+	document.styleSheets.dynCom.addRule(".dtxt","background: transparent");
+	document.styleSheets.dynCom.addRule(".etxt","visibility: hidden");
+	document.styleSheets.dynCom.addRule(".etxt","position: absolute");
+	//document.styleSheets.dynCom.addRule(".etxt","top: -1000");
+	//document.styleSheets.dynCom.addRule(".etxt","left: -1000");
+	//document.styleSheets.dynCom.addRule(".etxt","width: 8%");
+	document.styleSheets.dynCom.addRule(".etxt","background: lightblue");
+	document.styleSheets.dynCom.addRule(".etxt","color: black");
+	document.styleSheets.dynCom.addRule(".etxt","z-index: 0");
+  }
+
+  function ShowMeaning(com_id,img_id)
+  {
+    if ("<<<MYWOFLCARDNICE>>>" == "Checked") {
+      if (lastfc != "" && lastfcyn != "") {
+        lastfc.style.visibility = "hidden";
+        lastfcyn.style.visibility = "hidden";
+      }
+      c = document.all(com_id);
+      c.style.visibility = "visible";
+      x = document.all(img_id);
+      x.style.visibility = "visible";
+      lastfc = document.all(com_id);
+      lastfcyn = document.all(img_id);
+    }
+  }
+  
+  function HideMeaning(com_id,img_id)
+  {
+    c = document.all(com_id);
+    c.style.visibility = "hidden";
+    x = document.all(img_id);
+    x.style.visibility = "hidden";
+    if ( "<<<TEACHERMODECURRENT>>>" == "ON") {
+      var ChoiceArray = com_id.split("_");
+      WordCode = ChoiceArray[1]+"_"+ChoiceArray[2];
+      top.location.href = "SET§<<<MYWORDS"+"ORDER>>>§<<<SORTORDERAZ>>>§NO_REFRESH";
+      top.location.href = "DEL§PAGE_WORD_"+WordCode+"§FLCREF_NORFR";
+      top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§HypLernWordsDT.htm§<<<PAGETABLE>>>§NO";
+    }
+  }
+  
+  // function to support del in flashcard my word list
+  function DelKnownWord(com_id,img_id){
+    var ChoiceArray = com_id.split("_");
+    WordCode = ChoiceArray[1]+"_"+ChoiceArray[2];
+    top.location.href = "DBG§Checking if TeacherMode is ON:";
+    if ( "<<<TEACHERMODECURRENT>>>" == "ON") {
+      top.location.href = "SET§<<<MYWORDS"+"ORDER>>>§<<<SORTORDERAZ>>>§NO_REFRESH";
+      top.location.href = "DEL§PAGE_WORD_"+WordCode+"§FLCDEL_NORFR";
+      top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§HypLernWordsDT.htm§<<<PAGETABLE>>>§NO";
+    } else {
+      if ("<<<MYWOFLCARDNICE>>>" == "Checked") {
+        c = document.all(com_id);
+        c.style.visibility = "hidden";
+        x = document.all(img_id);
+        x.style.visibility = "hidden";
+      }
+      //top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<><<<PAGENUMBER>>><>§HypLernWords<<<MYWORDSORDER>>>.htm§<<<PAGETABLE>>>§NO";
+    }
+  }
+
+  // Function to remove too many decimals
+  function numberDecs(number, decs) {
+      number = +number;
+      decs = +decs;
+      number = number.toString().split('e');
+      number = Math.round(+(number[0] + 'e' + (number[1] ? (+number[1] - decs) : -decs)));
+      number = number.toString().split('e');
+      return +(number[0] + 'e' + (number[1] ? (+number[1] + decs) : decs));
+  }
+// --></SCRIPT>
+

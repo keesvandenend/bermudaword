@@ -1,0 +1,3 @@
+perling\bin\perl.exe formathtmltexts.pl French BeginnerStories -T "BeginnerStories" -V "Beginner Stories" -f "ABC/DEFG/HIJK/LMN/OP/QRS/TU/VXYZ" -c "Titre & Table des Mati&#232;res/ABC/DEFG/HIJK/LMN/OP/QRS/TU/VXYZ" -XEnglish "Title & Contents/ABC/DEFG/HIJK/LMN/OP/QRS/TU/VXYZ" -XDutch "Titel & Inhoud/ABC/DEFG/HIJK/LMN/OP/QRS/TU/VXYZ" -wc "836/567/628/777/543/765/428/746" -nwc "380/269/321/362/278/353/217/340" -uwc "172/107/151/148/93/141/67/115" -author "Lemaitre" -authornice "Jules Lema&#238;tre" -lvl "AB" -nopause %1 %2 %3 %4 %5 %6 %7 %8 %9
+
+encrypt French BeginnerStories -t "Beginner Stories" -v "Beginner Stories" -tln "French" "BeginnerStories" -nopause %1 %2 %3 %4 %5 %6 %7 %8 %9

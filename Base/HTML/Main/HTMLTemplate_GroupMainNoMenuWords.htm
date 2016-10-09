@@ -1,0 +1,83 @@
+<html>
+<!--MAINCODE-->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=<<<CHARSET>>>">
+
+<<<JAVATMAP>>>
+	
+<<<STYLEMAP>>>
+
+</head>
+<body background="..\Media\<<<TOOLBACKGROUNDPICTURE>>>" bgcolor="<<<TOOLBACKGROUNDCOLOR>>>" onload="doOnLoad(); return false;" oncontextmenu="return false;" onselectstart="return false;">
+<table align="center" cellspacing="0" width="<<<TABLEWIDTH>>>" frame="void">
+
+	<TR valign="top" width="600">
+	<TD valign="baseline" align="left" class=msomenutxt colspan="3" WIDTH=600 HEIGHT="40" NOWRAP >
+	      <NOBR>
+                  <IMG src="..\Media\ButtonBW.bmp" align="top"
+            language=JavaScript class=msomenutxt id=main_navigate name=main_navigate
+            onclick="ShowMenu('main_navigate','sub_navigate','20','18')"
+            alt="<<<Save and Help Options>>>">
+         <DIV id=sub_navigate class=msochoicetxt onmouseout="Hide('sub_navigate')">
+            <form name="Navigate">
+               <select name="Navigate" SIZE="8" onChange="ChangeLayout('parent', this, 0)">
+                  <option value='LAYOUTSINGLEABOUT'      ><<<About B&W>>></option>
+                  <option value='LAYOUTSINGLEMETHOD'      ><<<Method>>></option>
+                  <option value='LAYOUTSINGLEERANDSRS'   ><<<Erandsrs>>></option>
+               	  <option value='LAYOUTSINGLEUSAGE'      ><<<How to Use>>></option>
+               	  <option value='LAYOUTSINGLEPROGRESS'      ><<<My Progress>>></option>
+                  <option value='LAYOUTSINGLEHELP'       ><<<Help>>></option>
+                  <option value='LAYOUTSINGLEMYWORDSINFO' ><<<My Words Info>>></option>
+                  <option value='LAYOUTSINGLESETTINGS'    ><<<Settings>>></option>
+               </select>
+            </form>
+         </DIV>
+         
+         <IMG src="..\Media\ButtonLAYOUTDOUBLE.gif" align="top" alt="<<<BackToBook>>>" language=JavaScript onclick="goPage(); return false;">
+
+         <A href="DUMMY" onclick="MyWords(); return false;"><IMG src="..\Media\ButtonLAYOUTWORDS.gif" BORDER="0" alt="<<<My Words>>>"></A>
+
+         <IMG src="..\Media\ButtonTest.gif" alt="<<<Choose Testpage>>>"
+            language=JavaScript class=msomenutxt id=main_test name=main_test
+            onclick="ShowMenu('main_test','sub_test','20','18')">
+         <DIV id=sub_test class=msochoicetxt onmouseout="Hide('sub_test')">
+            <form name="Test">
+               <select name="Layout" SIZE="18" onChange="ChangeLayout('parent', this, 0)">
+                  <option value='LAYOUTTESTINWORDSNOTED§ALL§WORDTST§12'   ><<<My Words Test>>></option>
+<<<CHAPTERTESTOPTIONS>>>
+                  <option value='LAYOUTTESTINWORDTST§ALL§§12'      ><<<Total Test>>></option>
+                  <option value='LAYOUTTESTINWORDTST§ALL§EASY§12'  ><<<Easy Test>>></option>
+                  <option value='LAYOUTTESTINWORDTST§ALL§AVER§12'  ><<<Average Test>>></option>
+                  <option value='LAYOUTTESTINWORDTST§ALL§DIFF§12'  ><<<Difficult Test>>></option>
+               </select>
+            </form>
+         </DIV>
+         
+         <IMG src="..\Media\ButtonRestLeft.gif" HEIGHT="37" WIDTH="12"><IMG src="..\Media\ButtonRestMiddle.gif" HEIGHT="37" WIDTH="760"><IMG src="..\Media\ButtonRestRight.gif" HEIGHT="37" WIDTH="14">
+	</TD>
+	</TR>
+
+<tbody style='color:#<<<FONTCOLOR>>>'>
+<<<TOPEDGE>>>
+<tr width="<<<TABLEWIDTH>>>">
+<td colspan=1 width="1" bgcolor="<<<CELLTOPLEFTCOLOR>>>">
+</td>
+<td background="..\Media\<<<COLORSCHEMEBG>>>" bgcolor="<<<BACKCOLOR>>>" width="<<<CELLWIDTH>>>" valign="top"
+  style="padding-left: <<<DBLMARGINWIDTH>>>px; padding-right: <<<DBLMARGINWIDTH>>>px">
+  <img src="..\Media\transparent.GIF" height=600 width=0 border=0 align=left>
+<<<PAGETABLE>>>
+</td>
+
+
+<td width="1" bgcolor="<<<CELLBOTTOMRIGHTCOLOR>>>">
+</td>
+</tr>
+
+<<<LOWEDGE>>>
+
+</tbody>
+
+</table>
+</body>
+</html>
+

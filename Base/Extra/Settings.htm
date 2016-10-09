@@ -1,0 +1,435 @@
+  <P class=ExtraText>
+  	<DIV class=ExtraText>
+        <B><<<Configuration>>></B><BR><BR>
+        <FONT COLOR="#0000FF"><B><<<Qualitative>>></B></FONT><BR>
+        <<<This page shows the learner settings. To avoid advanced options, set >>>
+        <B><<<your learning style>>>:</B>
+        "<<<I am>>>
+        <A href='DUMMY' language=JavaScript class=msomenutxt id=configlrntype 
+        name=main_learnertype onclick="ShowMenu('main_learnertype','sub_learnertype','15','15');" 
+        onmouseover="ShowAlt('configlrntype','configlrntypealt')" onmouseout="Hide('configlrntypealt')" 
+        alt="<<<Learner Type>>>">
+        <FONT COLOR="#0000FF"><B><<<LEARNERTYPEVALUE>>></B></FONT></A> <<<at remembering new words>>>, 
+        <DIV id=sub_learnertype class=msochoicetxt onmouseout="Hide('sub_learnertype')">
+        <form name="Learner Type">
+        <select name="Learner Type" action="" SIZE="5" onChange="ChangeLayout('parent', this, 0)">
+        <option value="LAYOUTLEARNRVRGD"><<<Very Good>>> </option>
+        <option value="LAYOUTLEARNRGOOD"><<<Good>>>      </option>
+        <option value="LAYOUTLEARNRAVER"><<<Average>>>   </option>
+        <option value="LAYOUTLEARNRMBAD"><<<Poor>>>      </option>
+        <option value="LAYOUTLEARNRVRBD"><<<Very Poor>>> </option>
+        </select>
+        </form></DIV>
+        <DIV class=configsettingsalt id=configlrntypealt><<<Learner Type Help>>></DIV>
+        <<<want to study part 1>>>
+        <A href='DUMMY' language=JavaScript class=msomenutxt id=configlrnpace 
+        name=main_learnerpace onclick="ShowMenu('main_learnerpace','sub_learnerpace','15','15');"
+        onmouseover="ShowAlt('configlrnpace','configlrnpacealt')" onmouseout="Hide('configlrnpacealt')" 
+        alt="<<<Learner Pace>>>">
+        <FONT COLOR="#0000FF"><B><<<LEARNERPACEVALUE>>></B></FONT></A> <<<want to study part 2>>>
+        <DIV id=sub_learnerpace class=msochoicetxt onmouseout="Hide('sub_learnerpace')">
+        <form name="Learner Pace">
+        <select name="Learner Pace" action="" SIZE="3" onChange="ChangeLayout('parent', this, 0)">
+        <option value="LAYOUTLEARNRFAST"><<<As Fast As Possible>>>          </option>
+        <option value="LAYOUTLEARNRMIDD"><<<Between Fast And Optimal>>>     </option>
+        <option value="LAYOUTLEARNRSLOW"><<<In A Pace Optimal To Learning>>></option>
+        </select>
+        </form></DIV>
+        <DIV class=configsettingsalt id=configlrnpacealt><<<Learner Pace Help>>></DIV>
+        <<<is now reflected in the Quantitative settings below>>>.<BR><BR>
+        
+        <FONT COLOR="#0000FF"><B><<<Quantitative>>></B></FONT><BR>
+        <B><<<Retention Factor>>>:</B> 
+        <A href='DUMMY' language=JavaScript class=msomenutxt id=configretfac 
+        onmouseover="ShowAlt('configretfac','configretfacalt')" onmouseout="Hide('configretfacalt')"
+        name=main_retfac onclick="ShowMenu('main_retfac','sub_retfac','15','15');" 
+        alt="<<<Retention Factor>>>"><FONT COLOR="#0000FF"><B><<<RETENTIONFACTOR>>></B></FONT></A>
+        <DIV id=sub_retfac class=msochoicetxt onmouseout="Hide('sub_retfac')">
+        <form name="Retention Factor">
+        <select name="Retention Factor" action="" SIZE="7" onChange="ChangeLayout('parent', this, 0)">
+        <option value="LAYOUTRETFAC6">6</option>
+        <option value="LAYOUTRETFAC7">7</option>
+        <option value="LAYOUTRETFAC8">8</option>
+        <option value="LAYOUTRETFAC10">10</option>
+        <option value="LAYOUTRETFAC12">12</option>
+        <option value="LAYOUTRETFAC15">15</option>
+        <option value="LAYOUTRETFAC20">20</option>
+        </select>
+        </form></DIV> <<<times a word has to be 'met' in the text or in >>>
+        <DIV class=configsettingsalt id=configretfacalt><<<Retention Factor Help>>></DIV>
+        <B><<<tests>>>:</B> <<<one test per>>>
+        <A href='DUMMY' language=JavaScript class=msomenutxt id=configchtfac 
+        onmouseover="ShowAlt('configchtfac','configchtfacalt')" onmouseout="Hide('configchtfacalt')"
+        name=main_chtfac onclick="ShowMenu('main_chtfac','sub_chtfac','15','15');" 
+        alt="<<<Chapter Test Factor>>>"><FONT COLOR="#0000FF"><B><<<CHAPTERTESTFACTOR>>></B></FONT></A>
+        <DIV id=sub_chtfac class=msochoicetxt onmouseout="Hide('sub_chtfac')">
+        <form name="Chapter Test Factor">
+        <select name="Chapter Test Factor" action="" SIZE="7" onChange="ChangeLayout('parent', this, 0)">
+        <option value="LAYOUTCHTFAC1">1&nbsp;&nbsp;&nbsp;&nbsp;</option>
+        <option value="LAYOUTCHTFAC2">2</option>
+        <option value="LAYOUTCHTFAC4">4</option>
+        <option value="LAYOUTCHTFAC6">6</option>
+        <option value="LAYOUTCHTFAC10">10</option>
+        <option value="LAYOUTCHTFAC15">15</option>
+        <option value="LAYOUTCHTFAC20">20</option>
+        </select>
+        </form></DIV> <<<pages of Chapter to unlock next Chapter>>>.
+        <DIV class=configsettingsalt id=configchtfacalt><<<Chapter Factor Help>>></DIV>
+
+        <!--Random extra factor: 1 to 12 (My Words words in My Words test, rest will be random from Difficult level)</BR> //-->
+
+        <<<Set The Frequency that defines if a word is difficult requires more testing>>>. 
+        <<<Easy words>>>: <<<EASYFREQ>>> <<<to>>> <<<infinite>>> <<<frequency in text, when is it an easy word>>>.
+        <<<Average words>>>: 
+        <A href='DUMMY' language=JavaScript class=msomenutxt id=configaverlo
+        onmouseover="ShowAlt('configaverlo','configaverloalt')" onmouseout="Hide('configaverloalt')"
+        name=main_averlo onclick="ShowMenu('main_averlo','sub_averlo','15','15');"
+        alt="<<<Average Word Low Frequency>>>"><FONT COLOR="#0000FF"><B><<<AVERFREQ>>></B></FONT></A>
+        <DIV id=sub_averlo class=msochoicetxt onmouseout="Hide('sub_averlo')">
+        <form name="Average Word Low Frequency">
+        <select name="Average Word Low Frequency" action="" SIZE="9" onChange="ChangeLayout('parent', this, 0)">
+        <option value="LAYOUTAVERLO2">2&nbsp;&nbsp;&nbsp;&nbsp;</option>
+        <option value="LAYOUTAVERLO3">3</option>
+        <option value="LAYOUTAVERLO4">4</option>
+        <option value="LAYOUTAVERLO5">5</option>
+        <option value="LAYOUTAVERLO6">6</option>
+        <option value="LAYOUTAVERLO7">7</option>
+        <option value="LAYOUTAVERLO8">8</option>
+        <option value="LAYOUTAVERLO9">9</option>
+        <option value="LAYOUTAVERLO10">10</option>
+        <option value="LAYOUTAVERLO11">11</option>
+        <option value="LAYOUTAVERLO12">12</option>
+        <option value="LAYOUTAVERLO13">13</option>
+        <option value="LAYOUTAVERLO14">14</option>
+        <option value="LAYOUTAVERLO15">15</option>
+        <option value="LAYOUTAVERLO16">16</option>
+        <option value="LAYOUTAVERLO17">17</option>
+        <option value="LAYOUTAVERLO18">18</option>
+        <option value="LAYOUTAVERLO19">19</option>
+        </select>
+        </form></DIV>
+        <DIV class=configsettingsalt id=configaverloalt><<<Average Word Low Frequency>>></DIV>
+         <<<to>>> 
+        <A href='DUMMY' language=JavaScript class=msomenutxt id=configaverhi
+        onmouseover="ShowAlt('configaverhi','configaverhialt')" onmouseout="Hide('configaverhialt')"
+        name=main_averhi onclick="ShowMenu('main_averhi','sub_averhi','15','15');" 
+        alt="<<<Average Word High Frequency>>>"><FONT COLOR="#0000FF"><B><<<AVERFREQTOP>>></B></FONT></A>
+        <DIV id=sub_averhi class=msochoicetxt onmouseout="Hide('sub_averhi')">
+        <form name="Average Word High Frequency">
+        <select name="Average Word High Frequency" action="" SIZE="9" onChange="ChangeLayout('parent', this, 0)">
+        <option value="LAYOUTAVERHI3">3&nbsp;&nbsp;&nbsp;&nbsp;</option>
+        <option value="LAYOUTAVERHI4">4</option>
+        <option value="LAYOUTAVERHI5">5</option>
+        <option value="LAYOUTAVERHI6">6</option>
+        <option value="LAYOUTAVERHI7">7</option>
+        <option value="LAYOUTAVERHI8">8</option>
+        <option value="LAYOUTAVERHI9">9</option>
+        <option value="LAYOUTAVERHI10">10</option>
+        <option value="LAYOUTAVERHI11">11</option>
+        <option value="LAYOUTAVERHI12">12</option>
+        <option value="LAYOUTAVERHI13">13</option>
+        <option value="LAYOUTAVERHI14">14</option>
+        <option value="LAYOUTAVERHI15">15</option>
+        <option value="LAYOUTAVERHI16">16</option>
+        <option value="LAYOUTAVERHI17">17</option>
+        <option value="LAYOUTAVERHI18">18</option>
+        <option value="LAYOUTAVERHI19">19</option>
+        <option value="LAYOUTAVERHI20">20</option>
+        </select></form></DIV>
+        <DIV class=configsettingsalt id=configaverhialt><<<Average Word High Frequency>>></DIV>
+         <<<frequency in text, when is it an average word>>>. 
+         <<<Difficult words>>>: <<<DIFFFREQ>>> <<<to>>> <<<DIFFFREQTOP>>> <<<frequency in text, when is it a difficult word>>>.<BR>
+        <B><<<Spaced Repetition>>>:</B> 
+        <A href='DUMMY' language=JavaScript class=msomenutxt id=configspacedrep
+        onmouseover="ShowAlt('configspacedrep','configspacedrepalt')" onmouseout="Hide('configspacedrepalt')" 
+        name=main_srsin onclick="ShowMenu('main_srsin','sub_srsin','15','15');">
+        <FONT COLOR="#0000FF"><B><<<SRSINCR>>></B></FONT></A>
+        <DIV id=sub_srsin class=msochoicetxt onmouseout="Hide('sub_srsin')">
+        <form name="Spaced Repetition">
+        <select name="Spaced Repetition" action="" SIZE="8" onChange="ChangeLayout('parent', this, 0)">
+        <option value="LAYOUTSRSSIN0"><<<None>>></option>
+        <option value="LAYOUTSRSSIN1"><<<Equally Spaced>>></option>
+        <option value="LAYOUTSRSSIN1P1">Increment Factor 1.1</option>
+        <option value="LAYOUTSRSSIN1P2">Increment Factor 1.2</option>
+        <option value="LAYOUTSRSSIN1P3">Increment Factor 1.3</option>
+        <option value="LAYOUTSRSSIN1P4">Increment Factor 1.4</option>
+        <option value="LAYOUTSRSSIN1P5">Increment Factor 1.5</option>
+        <option value="LAYOUTSRSSIN1P6">Increment Factor 1.6</option>
+        <option value="LAYOUTSRSSIN1P8">Increment Factor 1.8</option>
+        <option value="LAYOUTSRSSIN2">Increment Factor 2</option>
+        <option value="LAYOUTSRSSIN3">Increment Factor 3</option>
+        </select></form></DIV>
+        <<<with first Interval>>>:</B>
+        <A href='DUMMY' language=JavaScript class=msomenutxt id=main_srsfm name=main_srsfm
+        onclick="ShowMenu('main_srsfm','sub_srsfm','15','15');" alt="<<<Spaced Repetition Interval In Minutes>>>">
+        <FONT COLOR="#0000FF"><B><<<SRSFMIN>>></B></FONT></A>
+        <DIV id=sub_srsfm class=msochoicetxt onmouseout="Hide('sub_srsfm')">
+        <form name="Spaced Repetition Interval In Minutes">
+        <select name="Spaced Repetition Interval In Minutes" action="" SIZE="9" 
+        onChange="ChangeLayout('parent', this, 0)">
+        <option value="LAYOUTSRSSFM0">0&nbsp;&nbsp;&nbsp;&nbsp;</option>
+        <option value="LAYOUTSRSSFM1">1</option>
+        <option value="LAYOUTSRSSFM2">2</option>
+        <option value="LAYOUTSRSSFM3">3</option>
+        <option value="LAYOUTSRSSFM4">4</option>
+        <option value="LAYOUTSRSSFM5">5</option>
+        <option value="LAYOUTSRSSFM6">6</option>
+        <option value="LAYOUTSRSSFM7">7</option>
+        <option value="LAYOUTSRSSFM8">8</option>
+        <option value="LAYOUTSRSSFM9">9</option>
+        <option value="LAYOUTSRSSFM10">10</option>
+        <option value="LAYOUTSRSSFM11">11</option>
+        <option value="LAYOUTSRSSFM12">12</option>
+        <option value="LAYOUTSRSSFM13">13</option>
+        <option value="LAYOUTSRSSFM14">14</option>
+        <option value="LAYOUTSRSSFM15">15</option>
+        <option value="LAYOUTSRSSFM16">16</option>
+        <option value="LAYOUTSRSSFM17">17</option>
+        <option value="LAYOUTSRSSFM18">18</option>
+        <option value="LAYOUTSRSSFM19">19</option>
+        <option value="LAYOUTSRSSFM20">20</option>
+        <option value="LAYOUTSRSSFM21">21</option>
+        <option value="LAYOUTSRSSFM22">22</option>
+        <option value="LAYOUTSRSSFM23">23</option>
+        <option value="LAYOUTSRSSFM24">24</option>
+        <option value="LAYOUTSRSSFM25">25</option>
+        <option value="LAYOUTSRSSFM26">26</option>
+        <option value="LAYOUTSRSSFM27">27</option>
+        <option value="LAYOUTSRSSFM28">28</option>
+        <option value="LAYOUTSRSSFM29">29</option>
+        <option value="LAYOUTSRSSFM30">30</option>
+        <option value="LAYOUTSRSSFM31">31</option>
+        <option value="LAYOUTSRSSFM32">32</option>
+        <option value="LAYOUTSRSSFM33">33</option>
+        <option value="LAYOUTSRSSFM34">34</option>
+        <option value="LAYOUTSRSSFM35">35</option>
+        <option value="LAYOUTSRSSFM36">36</option>
+        <option value="LAYOUTSRSSFM37">37</option>
+        <option value="LAYOUTSRSSFM38">38</option>
+        <option value="LAYOUTSRSSFM39">39</option>
+        <option value="LAYOUTSRSSFM40">40</option>
+        <option value="LAYOUTSRSSFM41">41</option>
+        <option value="LAYOUTSRSSFM42">42</option>
+        <option value="LAYOUTSRSSFM43">43</option>
+        <option value="LAYOUTSRSSFM44">44</option>
+        <option value="LAYOUTSRSSFM45">45</option>
+        <option value="LAYOUTSRSSFM46">46</option>
+        <option value="LAYOUTSRSSFM47">47</option>
+        <option value="LAYOUTSRSSFM48">48</option>
+        <option value="LAYOUTSRSSFM49">49</option>
+        <option value="LAYOUTSRSSFM50">50</option>
+        <option value="LAYOUTSRSSFM51">51</option>
+        <option value="LAYOUTSRSSFM52">52</option>
+        <option value="LAYOUTSRSSFM53">53</option>
+        <option value="LAYOUTSRSSFM54">54</option>
+        <option value="LAYOUTSRSSFM55">55</option>
+        <option value="LAYOUTSRSSFM56">56</option>
+        <option value="LAYOUTSRSSFM57">57</option>
+        <option value="LAYOUTSRSSFM58">58</option>
+        <option value="LAYOUTSRSSFM59">59</option>
+        <option value="LAYOUTSRSSFM60">60</option>
+        <option value="LAYOUTSRSSFM61">61</option>
+        <option value="LAYOUTSRSSFM62">62</option>
+        <option value="LAYOUTSRSSFM63">63</option>
+        <option value="LAYOUTSRSSFM64">64</option>
+        <option value="LAYOUTSRSSFM65">65</option>
+        <option value="LAYOUTSRSSFM66">66</option>
+        <option value="LAYOUTSRSSFM67">67</option>
+        <option value="LAYOUTSRSSFM68">68</option>
+        <option value="LAYOUTSRSSFM69">69</option>
+        <option value="LAYOUTSRSSFM70">70</option>
+        <option value="LAYOUTSRSSFM71">71</option>
+        <option value="LAYOUTSRSSFM72">72</option>
+        <option value="LAYOUTSRSSFM73">73</option>
+        <option value="LAYOUTSRSSFM74">74</option>
+        <option value="LAYOUTSRSSFM75">75</option>
+        <option value="LAYOUTSRSSFM76">76</option>
+        <option value="LAYOUTSRSSFM77">77</option>
+        <option value="LAYOUTSRSSFM78">78</option>
+        <option value="LAYOUTSRSSFM79">79</option>
+        <option value="LAYOUTSRSSFM80">80</option>
+        <option value="LAYOUTSRSSFM81">81</option>
+        <option value="LAYOUTSRSSFM82">82</option>
+        <option value="LAYOUTSRSSFM83">83</option>
+        <option value="LAYOUTSRSSFM84">84</option>
+        <option value="LAYOUTSRSSFM85">85</option>
+        <option value="LAYOUTSRSSFM86">86</option>
+        <option value="LAYOUTSRSSFM87">87</option>
+        <option value="LAYOUTSRSSFM88">88</option>
+        <option value="LAYOUTSRSSFM89">89</option>
+        <option value="LAYOUTSRSSFM90">90</option>
+        </select></form></DIV> <<<minutes>>> <B><<<OR>>></B> 
+        <A href='DUMMY' language=JavaScript class=msomenutxt id=main_srsfh name=main_srsfh 
+        onclick="ShowMenu('main_srsfh','sub_srsfh','15','15');" alt="<<<Spaced Repetition Interval In Hours>>>">
+        <FONT COLOR="#0000FF"><B><<<SRSFHRS>>></B></FONT></A>
+        <DIV id=sub_srsfh class=msochoicetxt onmouseout="Hide('sub_srsfh')">
+        <form name="Spaced Repetition Interval In Hours">
+        <select name="Spaced Repetition Interval In Hours" action="" SIZE="9" 
+        onChange="ChangeLayout('parent', this, 0)">
+        <option value="LAYOUTSRSSFH0">0&nbsp;&nbsp;&nbsp;&nbsp;</option>
+        <option value="LAYOUTSRSSFH1">1</option>
+        <option value="LAYOUTSRSSFH2">2</option>
+        <option value="LAYOUTSRSSFH3">3</option>
+        <option value="LAYOUTSRSSFH4">4</option>
+        <option value="LAYOUTSRSSFH5">5</option>
+        <option value="LAYOUTSRSSFH6">6</option>
+        <option value="LAYOUTSRSSFH7">7</option>
+        <option value="LAYOUTSRSSFH8">8</option>
+        <option value="LAYOUTSRSSFH9">9</option>
+        <option value="LAYOUTSRSSFH10">10</option>
+        <option value="LAYOUTSRSSFH11">11</option>
+        <option value="LAYOUTSRSSFH12">12</option>
+        <option value="LAYOUTSRSSFH13">13</option>
+        <option value="LAYOUTSRSSFH14">14</option>
+        <option value="LAYOUTSRSSFH15">15</option>
+        <option value="LAYOUTSRSSFH16">16</option>
+        <option value="LAYOUTSRSSFH17">17</option>
+        <option value="LAYOUTSRSSFH18">18</option>
+        <option value="LAYOUTSRSSFH19">19</option>
+        <option value="LAYOUTSRSSFH20">20</option>
+        <option value="LAYOUTSRSSFH21">21</option>
+        <option value="LAYOUTSRSSFH22">22</option>
+        <option value="LAYOUTSRSSFH23">23</option>
+        <option value="LAYOUTSRSSFH24">24</option>
+        <option value="LAYOUTSRSSFH25">25</option>
+        <option value="LAYOUTSRSSFH26">26</option>
+        <option value="LAYOUTSRSSFH27">27</option>
+        <option value="LAYOUTSRSSFH28">28</option>
+        <option value="LAYOUTSRSSFH29">29</option>
+        <option value="LAYOUTSRSSFH30">30</option>
+        <option value="LAYOUTSRSSFH31">31</option>
+        <option value="LAYOUTSRSSFH32">32</option>
+        <option value="LAYOUTSRSSFH33">33</option>
+        <option value="LAYOUTSRSSFH34">34</option>
+        <option value="LAYOUTSRSSFH35">35</option>
+        <option value="LAYOUTSRSSFH36">36</option>
+        </select></form></DIV> <<<hours>>> <B><<<OR>>></B> 
+        <A href='DUMMY' language=JavaScript class=msomenutxt id=main_srsfd name=main_srsfd 
+        onclick="ShowMenu('main_srsfd','sub_srsfd','15','15');" alt="<<<Spaced Repetition Interval In Days>>>">
+        <FONT COLOR="#0000FF"><B><<<SRSFDYS>>></B></FONT></A>
+        <DIV id=sub_srsfd class=msochoicetxt onmouseout="Hide('sub_srsfd')">
+        <form name="Spaced Repetition Interval In Days">
+        <select name="Spaced Repetition Interval In Days" action="" SIZE="9" 
+        onChange="ChangeLayout('parent', this, 0)">
+        <option value="LAYOUTSRSSFD0">0&nbsp;&nbsp;&nbsp;&nbsp;</option>
+        <option value="LAYOUTSRSSFD1">1</option>
+        <option value="LAYOUTSRSSFD2">2</option>
+        <option value="LAYOUTSRSSFD3">3</option>
+        <option value="LAYOUTSRSSFD4">4</option>
+        <option value="LAYOUTSRSSFD5">5</option>
+        <option value="LAYOUTSRSSFD6">6</option>
+        <option value="LAYOUTSRSSFD7">7</option>
+        <option value="LAYOUTSRSSFD8">8</option>
+        <option value="LAYOUTSRSSFD9">9</option>
+        <option value="LAYOUTSRSSFD10">10</option>
+        <option value="LAYOUTSRSSFD11">11</option>
+        <option value="LAYOUTSRSSFD12">12</option>
+        <option value="LAYOUTSRSSFD13">13</option>
+        <option value="LAYOUTSRSSFD14">14</option>
+        </select></form></DIV> <<<days>>> <<<and>>> 
+        <DIV class=configsettingsalt id=configspacedrepalt><<<Spaced Repetition Help>>></DIV>
+        <B><<<Resulting Scheduled Reminders>>>:</B> <<<SRSSCHED>>> <<<with>>> 
+        <A href='DUMMY' language=JavaScript class=msomenutxt id="configsrsmg" 
+        onmouseover="ShowAlt('configsrsmg','configsrsmgalt')" onmouseout="Hide('configsrsmgalt')" 
+        name=main_srsmg onclick="ShowMenu('main_srsmg','sub_srsmg','15','15');" 
+        alt="<<<Spaced Repetition Interval Margin Percentage>>>">
+        <FONT COLOR="#0000FF"><B><<<SRSMARGN>>></B></FONT></A>
+        <DIV id=sub_srsmg class=msochoicetxt onmouseout="Hide('sub_srsmg')">
+        <form name="<<<Spaced Repetition Interval Margin Percentage>>>">
+        <select name="<<<Spaced Repetition Interval Margin Percentage>>>" 
+        action="" SIZE="9" onChange="ChangeLayout('parent', this, 0)">
+        <option value="LAYOUTSRSMGN5">5&nbsp;&nbsp;&nbsp;&nbsp;</option>
+        <option value="LAYOUTSRSMGN6">6</option>
+        <option value="LAYOUTSRSMGN7">7</option>
+        <option value="LAYOUTSRSMGN8">8</option>
+        <option value="LAYOUTSRSMGN9">9</option>
+        <option value="LAYOUTSRSMGN10">10</option>
+        <option value="LAYOUTSRSMGN11">11</option>
+        <option value="LAYOUTSRSMGN12">12</option>
+        <option value="LAYOUTSRSMGN13">13</option>
+        <option value="LAYOUTSRSMGN14">14</option>
+        <option value="LAYOUTSRSMGN15">15</option>
+        <option value="LAYOUTSRSMGN16">16</option>
+        <option value="LAYOUTSRSMGN17">17</option>
+        <option value="LAYOUTSRSMGN18">18</option>
+        <option value="LAYOUTSRSMGN19">19</option>
+        <option value="LAYOUTSRSMGN20">20</option>
+        <option value="LAYOUTSRSMGN21">21</option>
+        <option value="LAYOUTSRSMGN22">22</option>
+        <option value="LAYOUTSRSMGN23">23</option>
+        <option value="LAYOUTSRSMGN24">24</option>
+        <option value="LAYOUTSRSMGN25">25</option>
+        <option value="LAYOUTSRSMGN26">26</option>
+        <option value="LAYOUTSRSMGN27">27</option>
+        <option value="LAYOUTSRSMGN28">28</option>
+        <option value="LAYOUTSRSMGN29">29</option>
+        <option value="LAYOUTSRSMGN30">30</option>
+        <option value="LAYOUTSRSMGN31">31</option>
+        <option value="LAYOUTSRSMGN32">32</option>
+        <option value="LAYOUTSRSMGN33">33</option>
+        <option value="LAYOUTSRSMGN34">34</option>
+        <option value="LAYOUTSRSMGN35">35</option>
+        <option value="LAYOUTSRSMGN36">36</option>
+        <option value="LAYOUTSRSMGN37">37</option>
+        <option value="LAYOUTSRSMGN38">38</option>
+        <option value="LAYOUTSRSMGN39">39</option>
+        <option value="LAYOUTSRSMGN40">40</option>
+        <option value="LAYOUTSRSMGN41">41</option>
+        <option value="LAYOUTSRSMGN42">42</option>
+        <option value="LAYOUTSRSMGN43">43</option>
+        <option value="LAYOUTSRSMGN44">44</option>
+        <option value="LAYOUTSRSMGN45">45</option>
+        <option value="LAYOUTSRSMGN46">46</option>
+        <option value="LAYOUTSRSMGN47">47</option>
+        <option value="LAYOUTSRSMGN48">48</option>
+        <option value="LAYOUTSRSMGN49">49</option>
+        <option value="LAYOUTSRSMGN50">50</option>
+        <option value="LAYOUTSRSMGN51">51</option>
+        <option value="LAYOUTSRSMGN52">52</option>
+        <option value="LAYOUTSRSMGN53">53</option>
+        <option value="LAYOUTSRSMGN54">54</option>
+        <option value="LAYOUTSRSMGN55">55</option>
+        <option value="LAYOUTSRSMGN56">56</option>
+        <option value="LAYOUTSRSMGN57">57</option>
+        <option value="LAYOUTSRSMGN58">58</option>
+        <option value="LAYOUTSRSMGN59">59</option>
+        <option value="LAYOUTSRSMGN60">60</option>
+        <option value="LAYOUTSRSMGN61">61</option>
+        <option value="LAYOUTSRSMGN62">62</option>
+        <option value="LAYOUTSRSMGN63">63</option>
+        <option value="LAYOUTSRSMGN64">64</option>
+        <option value="LAYOUTSRSMGN65">65</option>
+        <option value="LAYOUTSRSMGN66">66</option>
+        <option value="LAYOUTSRSMGN67">67</option>
+        <option value="LAYOUTSRSMGN68">68</option>
+        <option value="LAYOUTSRSMGN69">69</option>
+        <option value="LAYOUTSRSMGN70">70</option>
+        <option value="LAYOUTSRSMGN71">71</option>
+        <option value="LAYOUTSRSMGN72">72</option>
+        <option value="LAYOUTSRSMGN73">73</option>
+        <option value="LAYOUTSRSMGN74">74</option>
+        <option value="LAYOUTSRSMGN75">75</option>
+        <option value="LAYOUTSRSMGN76">76</option>
+        <option value="LAYOUTSRSMGN77">77</option>
+        <option value="LAYOUTSRSMGN78">78</option>
+        <option value="LAYOUTSRSMGN79">79</option>
+        <option value="LAYOUTSRSMGN80">80</option>
+        <option value="LAYOUTSRSMGN81">81</option>
+        <option value="LAYOUTSRSMGN82">82</option>
+        <option value="LAYOUTSRSMGN83">83</option>
+        <option value="LAYOUTSRSMGN84">84</option>
+        <option value="LAYOUTSRSMGN85">85</option>
+        </select></form></DIV>% <<<margin>>> <<<and>>>
+        <DIV class=configsettingsalt id=configsrsmgalt><<<Spaced Repetition Interval Margin Help>>></DIV>
+        <<<Length Of Schedule Per Word.>>>
+        <<<Spaced interval is shown to assist memorizing words when used over a longer term.>>>
+        <<<However, if you continue reading other books, duration does not have to be months.>>><BR>
+        ummy ine<BR>
+        <DIV class=ExtraText><form style="border: 0px; padding: 0px; margin-top: -1em; background-color: white;"><fieldset class=configsettings style="border: 0px; padding: 0px; background-color: white;"><NOBR><input type="checkbox" style="border: 1px; background-color: white;" onclick="ChangeWayout('LAYOUTSRSSFQCH')" <<<ALSOHIFREQNICE>>>>&nbsp;<IMG id="configkeephifreq" align="absmiddle" src="..\Media\ButtonCheck.gif" onmouseover="ShowAlt('configkeephifreq','configkeephifreqalt')" onmouseout="Hide('configkeephifreqalt')">&nbsp;<<<Keep High Freq Option Part 1>>> <<<RETENTIONFACTOR>>> <<<Keep High Freq Option Part 2>>></NOBR></fieldset></form></DIV><DIV class=configsettingsalt id=configkeephifreqalt><<<Keep High Freq Help>>></DIV>
+        <DIV class=ExtraText><form style="border: 0px; padding: 0px; margin-top: -1em; background-color: white;"><fieldset class=configsettings style="border: 0px; padding: 0px; background-color: white;"><NOBR><input type="checkbox" style="border: 1px; background-color: white;" onclick="ChangeWayout('LAYOUTSRSSNFMW')" <<<NONEFIMYWONICE>>>>&nbsp;<IMG id="confignonefimywo" align="absmiddle" src="..\Media\ButtonCheck.gif" onmouseover="ShowAlt('confignonefimywo','confignonefimywoalt')" onmouseout="Hide('confignonefimywoalt')">&nbsp;<<<Allow Chapter Progress Option>>></NOBR></fieldset></form></DIV><DIV class=configsettingsalt id=confignonefimywoalt><<<No Need To Finish My Words Help>>></DIV>
+        <DIV class=ExtraText><form style="border: 0px; padding: 0px; margin-top: -1em; background-color: white;"><fieldset class=configsettings style="border: 0px; padding: 0px; background-color: white;"><NOBR><input type="checkbox" style="border: 1px; background-color: white;" onclick="ChangeWayout('LAYOUTSRSSKTCH')" <<<KEEPTESTEDNICE>>>>&nbsp;<IMG id="configkeepfinish" align="absmiddle" src="..\Media\ButtonCheck.gif" onmouseover="ShowAlt('configkeepfinish','configkeepfinishalt')" onmouseout="Hide('configkeepfinishalt')">&nbsp;<<<Keep Finished Words>>></NOBR></fieldset></form></DIV><DIV class=configsettingsalt id=configkeepfinishalt><<<Keep Finished Words Help>>></DIV>
+        <DIV class=ExtraText><form style="border: 0px; padding: 0px; margin-top: -1em; background-color: white;"><fieldset class=configsettings style="border: 0px; padding: 0px; background-color: white;"><NOBR><input type="checkbox" style="border: 1px; background-color: white;" onclick="ChangeWayout('LAYOUTSRSSFLCA')" <<<MYWOFLCARDNICE>>>>&nbsp;<IMG id="configmywoflcard" align="absmiddle" src="..\Media\ButtonCheck.gif" onmouseover="ShowAlt('configmywoflcard','configmywoflcardalt')" onmouseout="Hide('configmywoflcardalt')">&nbsp;<<<My Words Are Flash Cards>>></NOBR></fieldset></form></DIV><DIV class=configsettingsalt id=configmywoflcardalt><<<My Words Are Flash Cards Help>>></DIV>
+	<DIV class=ExtraText><form style="border: 0px; padding: 0px; margin-top: -1em; background-color: white;"><fieldset class=configsettings style="border: 0px; padding: 0px; background-color: white;"><NOBR><input type="checkbox" style="border: 1px; background-color: white;" onclick="ChangeWayout('LAYOUTAUTOSAVE')" <<<AUTOSAVINGNICE>>>>&nbsp;<IMG id="configautosaving" align="absmiddle" src="..\Media\ButtonCheck.gif" onmouseover="ShowAlt('configautosaving','configautosavingalt')" onmouseout="Hide('configautosavingalt')">&nbsp;<<<Use Autosave>>></NOBR></fieldset></form></DIV><DIV class=configsettingsalt id=configautosavingalt><<<Use Autosave Help>>></DIV>
+        <BR>
+        <DIV class=ExtraText style="text-align:right">Copyright © 2006-2015 Bermuda Word</DIV>
+</P>

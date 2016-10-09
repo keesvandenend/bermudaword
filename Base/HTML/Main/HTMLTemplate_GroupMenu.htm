@@ -1,0 +1,149 @@
+   <TR valign="top">
+      <td valign="top" class=msomenutxt width="50%">
+           <img src="..\Media\Transparent.gif" border="0" height="30px" width="100%">
+      </td>
+      <TD valign="top" align="left" class=msomenutxt colspan="2" width="800px" height="40" NOWRAP >
+      <NOBR>
+         <A class=msomenutxt href="DUMMY" onclick="ShowMenu('main_navigate','sub_navigate','20','18')">
+         <IMG src="..\Media\BWButton.gif" border="0" align="top" class=msomenutxt id=main_navigate
+            name=main_navigate alt="<<<Save and Help Options>>>">
+         </A>
+         <DIV id=sub_navigate class=msochoicetxt onmouseout="Hide('sub_navigate')">
+            <form name="Navigate" style='border: 0px;'>
+               <select name="Navigate" SIZE="8" onChange="ChangeLayout('parent', this, 0)">
+                  <option value='LAYOUTSINGLEABOUT'      ><<<About B&W>>></option>
+                  <option value='LAYOUTSINGLEMETHOD'      ><<<Method>>></option>
+                  <option value='LAYOUTSINGLEERANDSRS'   ><<<Erandsrs>>></option>
+               	  <option value='LAYOUTSINGLEUSAGE'      ><<<How to Use>>></option>
+                  <option value='LAYOUTSINGLEHELP'       ><<<Help>>></option>
+                  <<<EDITINGOPTION>>>
+                  <option value='LAYOUTSINGLEMYWORDSINFO' ><<<My Words Info>>></option>
+                  <option value='SAVEANDEXIT'><<<Save&Exit>>></option>
+                  <option value='EXITEXITEXIT'><<<Exit>>></option>
+               </select>
+            </form>
+         </DIV>
+
+         <A class=msomenutxt href="DUMMY" onclick="ChangeLayout('Direct','LAYOUTSINGLESETTINGS'); return false;">
+         <IMG src="..\Media\ReaderConfig.gif" border="0" class=msomenutxt alt="<<<My Settings>>>">
+         </A>
+         
+         <A class=msomenutxt href="DUMMY" onclick="ShowMenu('main_fonttype','sub_fonttype','20','18')">
+         <IMG src="..\Media\FontType.gif" border="0" alt="<<<Choose Font Type>>> (<<<CURRENTLY>>> <<<FONTFAMILY>>>)"
+            class=msomenutxt id=main_fonttype name=main_fonttype>
+         </A>
+         <DIV id=sub_fonttype class=msochoicetxt onmouseout="Hide('sub_fonttype')">
+            <form name="Font Family">
+               <select name="Font Family" SIZE="5" onChange="MM_jumpMenu('parent', this, 0)">
+                  <option value='ARIAL'            >Arial</option>
+                  <option value='TIMESNEWROMAN'    >Times</option>
+                  <option value='COMICSANSMS'      >Comic</option>
+                  <option value='LUCIDA'           >Lucida</option>
+                  <option value='TAHOMA'           >Tahoma</option>
+               </select>
+            </form>
+         </DIV>
+
+         <A class=msomenutxt href="DUMMY" onclick="ShowMenu('main_fontsize','sub_fontsize','20','18')">
+         <IMG src="..\Media\FontSize.gif" border="0" alt="<<<Choose Font Size>>> (<<<CURRENTLY>>> <<<FONTSIZE>>>)"
+            class=msomenutxt id=main_fontsize name=main_fontsize>
+         </A>
+         <DIV id=sub_fontsize class=msochoicetxt onmouseout="Hide('sub_fontsize')">
+            <form name="FontSize (<<<FONTSIZE>>>)">
+               <select name="FontSize" SIZE="4" onChange="MM_jumpMenu('parent', this, 0)">
+                  <option value='FONTSIZE10'   >10  pts</option>
+                  <option value='FONTSIZE12'   >12  pts</option>
+                  <option value='FONTSIZE14'   >14  pts</option>
+                  <option value='FONTSIZE16'   >16  pts</option>
+               </select>
+            </form>
+         </DIV>
+         
+         <A class=msomenutxt href="DUMMY" onclick="ChangeLayout('Direct','LAYOUTSINGLEPROGRESS'); return false;">
+         <IMG src="..\Media\ReaderProgress.gif" border="0" class=msomenutxt alt="<<<My Progress>>>">
+         </A>
+         
+         <A class=msomenutxt href="DUMMY" onclick="MyWords(); return false;">
+         <IMG src="..\Media\ShowMyWords.gif" border="0" class=msomenutxt alt="<<<My Words>>>">
+         </A>
+
+         <A class=msomenutxt href="DUMMY" onclick="ShowMenu('main_test','sub_test','20','18')">
+         <IMG src="..\Media\TestWords.gif" border="0" alt="<<<Choose Testpage>>>"
+            class=msomenutxt id=main_test name=main_test>
+         </A>
+         <DIV id=sub_test class=msochoicetxt onmouseout="Hide('sub_test')">
+               <select name="Layout" size="<<<NUMBEROFTESTOPTIONS>>>" onChange="ChangeLayout('parent', this, 0)">
+                  <option value='LAYOUTTESTINWORDSNOTED§ALL§WORDTST§12'   ><<<My Words Test>>></option>
+<<<CHAPTERTESTOPTIONS>>>
+                  <option value='LAYOUTTESTINWORDTST§ALL§§12'      ><<<Total Test>>></option>
+                  <option value='LAYOUTTESTINWORDTST§ALL§EASY§12'  ><<<Easy Test>>></option>
+                  <option value='LAYOUTTESTINWORDTST§ALL§AVER§12'  ><<<Average Test>>></option>
+                  <option value='LAYOUTTESTINWORDTST§ALL§DIFF§12'  ><<<Difficult Test>>></option>
+               </select>
+         </DIV>
+         
+         <A class=msomenutxt href="DUMMY" onclick="TurnTeacherMode('<<<TEACHERMODEOPPOSITE>>>'); return false;">
+         <IMG src="..\Media\TeacherModeTurned<<<TEACHERMODECURRENT>>>.gif" border="0"
+            class=msomenutxt alt="<<<Turn TeacherMode>>> <<<TEACHERMODEOPPOSITE>>>">
+         </A>
+
+         <A class=msomenutxt href="DUMMY" onclick="NextPageFrameUpdate('5'); return false;">
+         <IMG src="..\Media\DoubleLeftButton.gif" border="0"
+            class=msomenutxt alt="<<<Previous Two Pages>>>">
+         </A>
+
+         <A class=msomenutxt href="DUMMY" onclick="ShowMenu('main_page','sub_page','16','18')">
+            <IMG src="..\Media\PageButton.gif" border="0" alt="<<<Choose Page>>>"
+               class=msomenutxt id=main_page name=main_page>
+         </A>
+         <DIV id=sub_page class=msochoicetxt onmouseout="Hide('sub_page')">
+            <form name="Page " target="Frame4">
+               <select name="Page" SIZE="15" onChange="ChangePage('parent', this, 0)">
+<<<PAGEOPTIONS>>>
+               </select>
+            </form>
+         </DIV>
+         
+         <A class=msomenutxt href="DUMMY" onclick="NextPageFrameUpdate('6'); return false;">
+         <IMG src="..\Media\DoubleRightButton.gif" border="0"
+            class=msomenutxt alt="<<<Next Two Pages>>>">
+         </A>
+
+         <A class=msomenutxt href="DUMMY" onclick="NextPageFrameUpdate('3'); return false;">
+         <IMG src="..\Media\LeftButton.gif" border="0"
+            class=msomenutxt alt="<<<Previous Chapter>>>">
+         </A>
+
+         <A class=msomenutxt href="DUMMY" onclick="ShowMenu('main_chapter','sub_chapter','18','18')">
+         <IMG src="..\Media\ChapterButton.gif" border="0" alt="<<<Choose Chapter>>>"
+            class=msomenutxt id=main_chapter name=main_chapter>
+         </A>
+         <DIV id=sub_chapter class=msochoicetxt onmouseout="Hide('sub_chapter')">
+            <form name="Chapter " target="Frame4">
+               <select name="Chapter" size="<<<NUMBEROFCHAPTERS>>>" onChange="ChangePage('parent', this, 0)">
+<<<CHAPTEROPTIONS>>>
+               </select>
+            </form>
+         </DIV>
+
+         <A class=msomenutxt href="DUMMY" onclick="NextPageFrameUpdate('4'); return false;">
+         <IMG src="..\Media\RightButton.gif" border="0"
+            class=msomenutxt alt="<<<Next Chapter>>>">
+         </A>
+
+         <A class=msomenutxt href="DUMMY" onclick="ChangeLayout('Save','SAVESAVESAVE'); return false;">
+         <IMG src="..\Media\Save.gif" border="0" class=msomenutxt alt="<<<Save Manual>>>">
+         </A>
+         
+         <A class=msomenutxt href="DUMMY" onclick="toggleMenu('Off'); return false;">
+           <IMG src="..\Media\ToggleMenu.gif" border="0"
+              class=msomenutxt alt="<<<Turn Menu Off>>>">
+         </A>
+
+      </NOBR>
+      </TD>
+      <td valign="baseline" class=msomenutxt width="50%">
+           <img src="..\Media\Transparent.gif" border="0" height="30px" width="100%">
+      </td>
+   </TR>
+

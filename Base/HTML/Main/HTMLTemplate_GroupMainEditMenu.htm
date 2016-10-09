@@ -1,0 +1,162 @@
+<html>
+<!--MAINCODE-->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=<<<CHARSET>>>">
+
+<<<JAVATMAP>>>
+
+<SCRIPT language=JavaScript type=text/javascript>
+var ThisIsATest = "single";
+</SCRIPT>
+
+<<<STYLEMAP>>>
+
+</head>
+<body background="..\Media\<<<TOOLBACKGROUNDPICTURE>>>" bgcolor="<<<TOOLBACKGROUNDCOLOR>>>" onload="doOnLoad(); return false;" >
+<table align="center" cellspacing="0" width="100%" frame="void">
+
+	<TR valign="top">
+      <td valign="baseline" class=msomenutxt width="50%">
+           <img src="..\Media\Transparent.gif" border="0" height="30px" width="100%">
+      </td>
+      <TD valign="top" align="left" class=msomenutxt width="800px" height="38" NOWRAP >
+      <NOBR>
+         <A class=msomenutxt href="DUMMY" onclick="ShowMenu('main_navigate','sub_navigate','20','18')">
+         <IMG src="..\Media\BWButton.gif" border="0" align="top" class=msomenutxt id=main_navigate
+            name=main_navigate alt="<<<Save and Help Options>>>">
+         </A>
+         <DIV id=sub_navigate class=msochoicetxt onmouseout="Hide('sub_navigate')">
+            <form name="Navigate" style='border: 0px;'>
+               <select name="Navigate" SIZE="6" onChange="ChangeLayout('parent', this, 0)">
+                  <option value='LAYOUTSINGLEABOUT'      ><<<About B&W>>></option>
+                  <option value='LAYOUTSINGLEMETHOD'      ><<<Method>>></option>
+                  <option value='LAYOUTSINGLEERANDSRS'   ><<<Erandsrs>>></option>
+               	  <option value='LAYOUTSINGLEUSAGE'      ><<<How to Use>>></option>
+                  <option value='LAYOUTSINGLEHELP'       ><<<Help>>></option>
+                  <<<EDITINGOPTION>>>
+                  <option value='LAYOUTSINGLEMYWORDSINFO' ><<<My Words Info>>></option>
+               </select>
+            </form>
+         </DIV>
+         
+         <A class=msomenutxt href="DUMMY" onclick="ChangeLayout('Direct','LAYOUTSINGLESETTINGS'); return false;">
+         <IMG src="..\Media\ReaderConfig.gif" border="0" class=msomenutxt alt="<<<My Settings>>>">
+         </A>
+         
+         <A class=msomenutxt href="DUMMY" onclick="ShowMenu('main_fonttype','sub_fonttype','20','18')">
+         <IMG src="..\Media\FontType.gif" border="0" alt="<<<Choose Font Type>>> (<<<CURRENTLY>>> <<<FONTFAMILY>>>)"
+            class=msomenutxt id=main_fonttype name=main_fonttype>
+         </A>
+         <DIV id=sub_fonttype class=msochoicetxt onmouseout="Hide('sub_fonttype')">
+            <form name="Font Family">
+               <select name="Font Family" SIZE="5" onChange="MM_jumpMenu('parent', this, 0)">
+                  <option value='ARIAL'            >Arial</option>
+                  <option value='TIMESNEWROMAN'    >Times</option>
+                  <option value='COMICSANSMS'      >Comic</option>
+                  <option value='LUCIDA'           >Lucida</option>
+                  <option value='TAHOMA'           >Tahoma</option>
+               </select>
+            </form>
+         </DIV>
+
+         <A class=msomenutxt href="DUMMY" onclick="ShowMenu('main_fontsize','sub_fontsize','20','18')">
+         <IMG src="..\Media\FontSize.gif" border="0" alt="<<<Choose Font Size>>> (<<<CURRENTLY>>> <<<FONTSIZE>>>)"
+            class=msomenutxt id=main_fontsize name=main_fontsize>
+         </A>
+         <DIV id=sub_fontsize class=msochoicetxt onmouseout="Hide('sub_fontsize')">
+            <form name="FontSize (<<<FONTSIZE>>>)">
+               <select name="FontSize" SIZE="4" onChange="MM_jumpMenu('parent', this, 0)">
+                  <option value='FONTSIZE10'   >10  pts</option>
+                  <option value='FONTSIZE12'   >12  pts</option>
+                  <option value='FONTSIZE14'   >14  pts</option>
+                  <option value='FONTSIZE16'   >16  pts</option>
+               </select>
+            </form>
+         </DIV>
+
+         <A class=msomenutxt href="DUMMY" onclick="doOnLoad(); return false;">
+         <IMG src="..\Media\ReaderProgress.gif" border="0" class=msomenutxt alt="<<<NotAvailable>>>">
+         </A>
+         
+         <A class=msomenutxt href="DUMMY" onclick="doOnLoad(); return false;">
+         <IMG src="..\Media\ShowMyWords.gif" class=msomenutxt border="0" alt="<<<NotAvailable>>>">
+         </A>
+
+         <A class=msomenutxt href="DUMMY" onclick="doOnLoad(); return false;">
+         <IMG src="..\Media\TestWords.gif" border="0" alt="<<<NotAvailable>>>"
+            class=msomenutxt alt="<<<NotAvailable>>>">
+         </A>
+         
+         <A class=msomenutxt href="DUMMY" onclick="doOnLoad(); return false;">
+         <IMG src="..\Media\TeacherModeTurned<<<TEACHERMODECURRENT>>>.gif" border="0"
+            class=msomenutxt alt="<<<NotAvailable>>>">
+         </A>
+
+         <A class=msomenutxt href="DUMMY" onclick="doOnLoad(); return false;">
+         <IMG src="..\Media\DoubleLeftButtonGray.gif" border="0"
+            class=msomenutxt alt="<<<NotAvailable>>>">
+         </A>
+
+         <A class=msomenutxt href="DUMMY" onclick="doOnLoad(); return false;">
+         <IMG src="..\Media\PageButtonGray.gif" border="0" alt="<<<NotAvailable>>>"
+            class=msomenutxt id=main_page name=main_page>
+         </A>
+         
+         <A class=msomenutxt href="DUMMY" onclick="doOnLoad(); return false;">
+         <IMG src="..\Media\DoubleRightButtonGray.gif" border="0"
+            class=msomenutxt alt="<<<NotAvailable>>>">
+         </A>
+
+         <A class=msomenutxt href="DUMMY" onclick="doOnLoad(); return false;">
+         <IMG src="..\Media\LeftButtonGray.gif" border="0"
+            class=msomenutxt alt="<<<NotAvailable>>>">
+         </A>
+
+         <A class=msomenutxt href="DUMMY" onclick="doOnLoad(); return false;">
+         <IMG src="..\Media\ChapterButtonGray.gif" border="0" alt="<<<NotAvailable>>>"
+            class=msomenutxt id=main_chapter name=main_chapter>
+         </A>
+
+         <A class=msomenutxt href="DUMMY" onclick="doOnLoad(); return false;">
+         <IMG src="..\Media\RightButtonGray.gif" border="0"
+            class=msomenutxt alt="<<<NotAvailable>>>">
+         </A>
+
+         <A class=msomenutxt href="DUMMY" onclick="ChangeLayout('Save','SAVESAVESAVE'); return false;">
+         <IMG src="..\Media\Save.gif" border="0" class=msomenutxt alt="<<<Save Manual>>>">
+         </A>
+         
+         <A class=msomenutxt href="DUMMY" onclick="goPage(); return false;">
+         <IMG src="..\Media\BackToBook.gif" border="0" align="top"
+            class=msomenutxt alt="<<<BackToBook>>>">
+         </A>
+
+      </NOBR>
+      </TD>
+      <td valign="baseline" class=msomenutxt width="50%">
+           <img src="..\Media\Transparent.gif" border="0" height="30px" width="100%">
+      </td>
+   </TR>
+
+<tbody style='color:#<<<FONTCOLOR>>>'>
+
+<tr width="100%">
+      <td width="50%">
+         <IMG src="..\Media\Transparent.gif" border="0" height="700" width="100%"></a>
+      </td>
+<td background="..\Media\<<<COLORSCHEMEBG>>>" bgcolor="<<<BACKCOLOR>>>" width="800px" valign="top"
+  id="ietsnetjes" style="padding-left: 0 px; padding-right: 0px">
+<<<PAGEEDIT>>>
+</td>
+
+      <td width="50%">
+         
+      </td>
+</tr>
+
+</tbody>
+
+</table>
+</body>
+</html>
+
