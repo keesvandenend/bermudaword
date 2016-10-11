@@ -8,6 +8,9 @@ The base directory contains some of the necessary scripts and html files. The la
 
 The images show one of the Windows Software programs running, the executable included is a demo version of the full program.
 
+<h3>Framework:</h3>
+
+
 <h3>Screenprints:</h3>
 
 <img src="Bermuda-Word-Learn-to-Read-French-Beginners-Stories-Demo.jpg"></img>
