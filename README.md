@@ -63,7 +63,7 @@ top.location.href = "CFG§LAYOUTSINGLE§PARSE";
 <h6 id="AUD">AUD</h6>
 <i>Play audio file.</i></br>
 usage:
-top.location.href = "AUD§$audiofile_or_dummy"
+top.location.href = "AUD§$audiofile_or_dummy"</br>
 example:
 top.location.href = "AUD§TheThreeBearsPage1.mp3"
 
