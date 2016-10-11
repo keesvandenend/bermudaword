@@ -10,6 +10,8 @@ The images show one of the Windows Software programs running, the executable inc
 
 <h3>Framework:</h3>
 
+<i>The framework runs HTML+CSS package and through special Javascript urls specific functionality can be requested from the package to the framework, such as temporarily (configuration in memory) or permanently (in file) saving settings</i>
+
 <h6 id="DBG">DBG</h6>
 usage:
 "DBG§$MESSAGESTRING"</br>
@@ -18,9 +20,13 @@ top.location.href = "DBG§Checking if TeacherCurrentMyWordsNumber $TEACHERCURREN
 
 <h6 id="SET">SET</h6>
 usage:
-"SET§$VARIABLE§$VALUE§$[OPTIONAL: NO_REFRESH]" (NO_REFRESH used if value does not need to be updated on screen)</br>
+top.location.href = "SET§$VARIABLE§$VALUE§$[OPTIONAL: NO_REFRESH]" (NO_REFRESH used if value does not need to be updated on screen)</br>
 example:
 top.location.href = "SET§TEACHERCURRENT + $CHAPTERNUMBER§999§NO_REFRESH";
+
+<h6 id="SVF">SVF</h6>
+usage:
+top.location.href = "SVF§FinishedUniqueWordsFile.htm";
 
 <h6 id="GET">GET</h6>
 usage:
