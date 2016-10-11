@@ -11,9 +11,16 @@ The images show one of the Windows Software programs running, the executable inc
 <h3>Framework:</h3>
 
 <h6 id="DBG">DBG</h6>
-
+usage:
+"DBG§$MESSAGESTRING"
 example:
 top.location.href = "DBG§Checking if TeacherCurrentMyWordsNumber <<<TEACHERCURRENTMYWORDSNUMBER>>> and TeacherCurrentChapterTestCounter <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> are empty:";
+
+<h6 id="SET">SET</h6>
+usage:
+"SET§VARIABLE§VALUE§[OPTIONAL: NO_REFRESH]" (NO_REFRESH used if value does not need to be updated on screen)
+example:
+top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERNUMBER>>>§999§NO_REFRESH";
 
 <h3>Screenprints:</h3>
 
