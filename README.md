@@ -20,9 +20,15 @@ top.location.href = "DBG§Checking if TeacherCurrentMyWordsNumber $TEACHERCURREN
 
 <h6 id="SET">SET</h6>
 usage:
-top.location.href = "SET§$VARIABLE§$VALUE§$[OPTIONAL: NO_REFRESH]" (NO_REFRESH used if value does not need to be updated on screen)</br>
+top.location.href = "SET§$VARIABLE§$VALUE§$OPTIONAL: NO_REFRESH" (NO_REFRESH used if value does not need to be updated on screen)</br>
 example:
 top.location.href = "SET§TEACHERCURRENT + $CHAPTERNUMBER§999§NO_REFRESH";
+
+<h6 id="DEL">DEL</h6>
+usage:
+top.location.href = "DEL§$reference"§OPTIONAL: NO_REFRESH";
+example:
+top.location.href = "DEL§PAGE_WORD_+$WordCode+§FLCREF_NORFR";
 
 <h6 id="SVF">SVF</h6>
 usage:
@@ -36,10 +42,15 @@ top.location.href = "GET§$headerfile<>$dummy<>§$targetfile§$template§NO";
 
 <h6 id="CFG">CFG</h6>
 usage:
-"CFG§$THEME_OR_CONFIGURATION_GROUP_TO_SET§OPTIONAL: PARSE (PARSE if this influences other variables and need reparsing of all settings, for example in case CFG group influences certain SETs)</br>
+top.location.href = "CFG§$THEME_OR_CONFIGURATION_GROUP_TO_SET§OPTIONAL: PARSE (PARSE if this influences other variables and need reparsing of all settings, for example in case CFG group influences certain SETs)</br>
 example:
 top.location.href = "CFG§LAYOUTSINGLE§PARSE";
 
+<h6 id="AUD">AUD</h6>
+usage:
+top.location.href = "AUD§$audiofile_or_dummy"
+example:
+top.location.href = "AUD§TheThreeBearsPage1.mp3"
 
 <h3>Screenprints:</h3>
 
