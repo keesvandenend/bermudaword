@@ -20,9 +20,9 @@ example:
 top.location.href = "DBG§Checking if TeacherCurrentMyWordsNumber $TEACHERCURRENTMYWORDSNUMBER and TeacherCurrentChapterTestCounter $TEACHERCURRENTCHAPTERTESTCOUNTER are empty:";
 
 <h6 id="SET">SET</h6>
-<i>Set configuration data in memory optionally reloading page to show new configuration.<i>
+<i>Set configuration data in memory optionally reloading page to show new configuration.</i>
 usage:
-top.location.href = "SET§$VARIABLE§$VALUE§$OPTIONAL: NO_REFRESH" (NO_REFRESH used if value does not need to be updated on screen)</br>
+top.location.href = "SET§$VARIABLE§$VALUE§$OPTIONAL: NO_REFRESH" (NO_REFRESH used if value does not need to be updated on screen) </br>
 example:
 top.location.href = "SET§TEACHERCURRENT + $CHAPTERNUMBER§999§NO_REFRESH";
 
