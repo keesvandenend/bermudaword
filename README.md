@@ -20,7 +20,7 @@ top.location.href = "DBG§Checking if TeacherCurrentMyWordsNumber $TEACHERCURREN
 usage:
 "SET§$VARIABLE§$VALUE§$[OPTIONAL: NO_REFRESH]" (NO_REFRESH used if value does not need to be updated on screen)
 example:
-top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERNUMBER>>>§999§NO_REFRESH";
+top.location.href = "SET§TEACHERCURRENT + $CHAPTERNUMBER§999§NO_REFRESH";
 
 <h6 id="GET">GET</h6>
 usage:
