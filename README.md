@@ -14,7 +14,7 @@ The images show one of the Windows Software programs running, the executable inc
 usage:
 "DBG§$MESSAGESTRING"
 example:
-top.location.href = "DBG§Checking if TeacherCurrentMyWordsNumber <<<TEACHERCURRENTMYWORDSNUMBER>>> and TeacherCurrentChapterTestCounter <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> are empty:";
+top.location.href = "DBG§Checking if TeacherCurrentMyWordsNumber $TEACHERCURRENTMYWORDSNUMBER and TeacherCurrentChapterTestCounter $TEACHERCURRENTCHAPTERTESTCOUNTER are empty:";
 
 <h6 id="SET">SET</h6>
 usage:
