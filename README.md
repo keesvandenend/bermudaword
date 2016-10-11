@@ -11,3 +11,5 @@ The images show one of the Windows Software programs running, the executable inc
 <h3>Screenprints:</h3>
 
 <img src="Bermuda-Word-Learn-to-Read-French-Beginners-Stories-Demo.jpg"></img>
+
+<img src="Bermuda-Word-Learn-to-Read-French-Beginners-Stories-Example-Too.jpg"></img>
