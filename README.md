@@ -25,7 +25,7 @@ top.location.href = "SET§<<<TEACHERCURRENT" + "CHAPTERNUMBER>>>§999§NO_REFRES
 <h6 id="GET">GET</h6>
 usage:
 example:
-
+top.location.href = "GET§<<<BASEHTMLFILEPART>>>MainSmallMenu.htm<>"+NextChapterPage+"<>§Finished<<<TRANLANGOTHERTHANENG>>>.htm§<<<PAGETABLE>>>§NO";
 
 <h6 id="CFG">CFG</h6>
 usage:
