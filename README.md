@@ -10,6 +10,10 @@ The images show one of the Windows Software programs running, the executable inc
 
 <h3>Framework:</h3>
 
+<h6>DBG</h6>
+
+example:
+top.location.href = "DBG§Checking if TeacherCurrentMyWordsNumber <<<TEACHERCURRENTMYWORDSNUMBER>>> and TeacherCurrentChapterTestCounter <<<TEACHERCURRENTCHAPTERTESTCOUNTER>>> are empty:";
 
 <h3>Screenprints:</h3>
 
