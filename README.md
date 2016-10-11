@@ -12,7 +12,7 @@ The images show one of the Windows Software programs running, the executable inc
 
 <h6 id="DBG">DBG</h6>
 usage:
-"DBG§$MESSAGESTRING"
+"DBG§$MESSAGESTRING"</br>
 example:
 top.location.href = "DBG§Checking if TeacherCurrentMyWordsNumber $TEACHERCURRENTMYWORDSNUMBER and TeacherCurrentChapterTestCounter $TEACHERCURRENTCHAPTERTESTCOUNTER are empty:";
 
