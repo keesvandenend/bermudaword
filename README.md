@@ -81,7 +81,7 @@ top.location.href = "AUD§TheThreeBearsPage1.mp3"
 
 <img src="Bermuda-Word-Learn-to-Read-French-Beginners-Stories-Example-Too.jpg"></img>
 
-<img src="Bermuda-Word-Learn-to-Read-French-Beginners-Stories-Testing-Practise.jpg"></img>
+<img src="Bermuda-Word-Learn-to-Read-French-Beginners-Stories-Vocabulary-Flash-Cards.jpg"></img>
 
 <img src="Bermuda-Word-Learn-to-Read-French-Beginners-Stories-Testing-Practise.jpg"></img>
 
