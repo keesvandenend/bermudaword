@@ -1,6 +1,6 @@
 <h1>Bermuda Word</h1>
 
-<i>Program is pre-HTML5 and pre-ES2015 (code stems from 2007 - 2011) and VB version has comments removed, so please excuse the mess ;P</i>
+<i>Program is pre-HTML5 and pre-ES2015 (code stems from 2007 - 2011) and VB version has comments removed.</i>
 
 <b>Status</b>
 
