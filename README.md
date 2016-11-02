@@ -2,7 +2,7 @@
 
 <i>Program is pre-HTML5 and pre-ES2015 (code stems from 2007 - 2011) and VB version has comments removed, so please excuse the mess ;P</i>
 
-<b>In progress</b>
+<b>Status</b>
 
   <li>Software is legacy and not supported by newer Windows versions, so its status is finished.
 
