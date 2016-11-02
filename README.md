@@ -75,5 +75,5 @@ top.location.href = "AUD§TheThreeBearsPage1.mp3"
 
 <h3>Video of earlier version:</h3>
 
-<a href="https://img.youtube.com/vi/https://youtu.be/4lh7BSNk3xE" target="_blank"><img src="ScreenShot.png"></img></a>
+<a href="https://youtu.be/4lh7BSNk3xE" target="_blank"><img src="ScreenShot.png"></img></a>
 
