@@ -1,5 +1,7 @@
 <h1>Bermuda Word</h1>
 
+<i>Program is pre-HTML5 and pre-ES2015 (code stems from 2007 - 2011) and VB version has comments removed, so please excuse the mess ;P</i>
+
 This is a partial copy of the original Bermuda Word reader for older Windows versions. It is only to show the architecture that was set up to create the 44 different educational Software programs listed in ISBN.txt.
 
 The VB files contain the framework that offer the possibility of running the HTML+CSS+Javascript source in an executable, and also the plug-ins necessary to perform back-end tasks like <a href='README.md#DBG'>debugging</a>, <a href='README.md#SET'>persistency</a>, sorting, decryption, tests ui setup or automated registration at bermudaword.com. The perl scripts respectively create a HTML browser package and encrypt that and load it into a single .exe file.
