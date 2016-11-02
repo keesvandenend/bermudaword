@@ -18,7 +18,7 @@ The images show one of the Windows Software programs running, the executable inc
 
 <h3>Framework:</h3>
 
-<i>The framework runs HTML+CSS package and through special Javascript urls specific functionality can be requested from the package to the framework, such as temporarily (configuration in memory) or permanently (in file) saving settings. The framework simply intercepts the url and runs the requested functionality and/or returns the result.</i>
+<i>The VB executable framework runs HTML+CSS package and through special Javascript urls specific functionality can be requested from the package to the framework, such as temporarily (configuration in memory) or permanently (in file) saving settings. The framework simply intercepts the url and runs the requested functionality and/or returns the result.</i>
 
 <h6 id="DBG">DBG</h6>
 <i>Log message for debugging.</i></br>
