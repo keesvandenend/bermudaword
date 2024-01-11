@@ -16,6 +16,8 @@ The base directory contains some of the necessary scripts and html files. The la
 
 The images show one of the Windows Software programs running, the executable included is a demo version of the full program.
 
+N.B. The perl script was adapted to also automatically create the App packages for the newer cross-platform version of this software that's in <a href='https://github.com/keesvandenend/hyplern-app'>this repo</a>.
+
 <h3>Framework:</h3>
 
 <i>The VB executable framework runs HTML+CSS package and through special Javascript urls specific functionality can be requested from the package to the framework, such as temporarily (configuration in memory) or permanently (in file) saving settings. The framework simply intercepts the url and runs the requested functionality and/or returns the result.</i>
